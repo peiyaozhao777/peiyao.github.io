@@ -16,6 +16,6 @@ gem 'netrc'
 # Twitter
 gem 'jekyll-twitter-plugin'
 
-#gem 'github-pages'
-gem "github-pages", "~> 207", group: :jekyll_plugins
+gem 'github-pages'
+#gem "github-pages", "~> 207", group: :jekyll_plugins
 gem 'jekyll-include-cache'
