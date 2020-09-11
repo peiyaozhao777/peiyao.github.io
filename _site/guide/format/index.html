@@ -111,22 +111,25 @@
 	</div>
 	<div class="col-md-8">	
 		<div class="post">
-			<h2>Blog</h2>
+			<h2 id="blog">Blog</h2>
 
-<p>Each blog post is a Markdown file in <a href="https://github.com/blab/blotter/tree/master/blog/_posts"><code>blog/_posts/</code></a>.  File names have post date and a short title.  The short title is used for permanent URL links, so must be unique to each blog post.  For example: <a href="https://github.com/blab/blotter/blob/master/blog/_posts/2012-02-20-github-of-science.md"><code>2012-02-20-github-of-science.md</code></a>.  Posts have the following YAML top matter:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">---
+<p>Each blog post is a Markdown file in <a href="https://github.com/blab/blotter/tree/master/blog/_posts"><code class="language-plaintext highlighter-rouge">blog/_posts/</code></a>.  File names have post date and a short title.  The short title is used for permanent URL links, so must be unique to each blog post.  For example: <a href="https://github.com/blab/blotter/blob/master/blog/_posts/2012-02-20-github-of-science.md"><code class="language-plaintext highlighter-rouge">2012-02-20-github-of-science.md</code></a>.  Posts have the following YAML top matter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 layout: post
 title: Some thoughts on a GitHub of Science
 author: Trevor Bedford
 image: /images/blog/github_large.png
 ---
-</code></pre></div>
-<p>Tags <code>layout</code>, <code>title</code> and <code>author</code> are required, while <code>image</code> is optional.  The author name should correspond to the team member <code>title</code> tag for proper linking of posts to authors.  All blog images should live in <a href="https://github.com/blab/blotter/tree/master/images/blog"><code>images/blog/</code></a> and be referred as relative to the base directory, begining with <code>/images/</code>.</p>
+</code></pre></div></div>
 
-<h2>Papers</h2>
+<p>Tags <code class="language-plaintext highlighter-rouge">layout</code>, <code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">author</code> are required, while <code class="language-plaintext highlighter-rouge">image</code> is optional.  The author name should correspond to the team member <code class="language-plaintext highlighter-rouge">title</code> tag for proper linking of posts to authors.  All blog images should live in <a href="https://github.com/blab/blotter/tree/master/images/blog"><code class="language-plaintext highlighter-rouge">images/blog/</code></a> and be referred as relative to the base directory, begining with <code class="language-plaintext highlighter-rouge">/images/</code>.</p>
 
-<p>Each paper lives in <a href="https://github.com/blab/blotter/tree/master/papers/_posts"><code>papers/_posts/</code></a>.  File names, used to construct permalinks, are first author plus short (1-2 word) title, for example <a href="https://github.com/blab/blotter/blob/master/papers/_posts/2012-04-30-bedford-canalization.md"><code>2012-04-30-bedford-canalization.md</code></a>.   Papers have the following YAML metadata:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">---
+<h2 id="papers">Papers</h2>
+
+<p>Each paper lives in <a href="https://github.com/blab/blotter/tree/master/papers/_posts"><code class="language-plaintext highlighter-rouge">papers/_posts/</code></a>.  File names, used to construct permalinks, are first author plus short (1-2 word) title, for example <a href="https://github.com/blab/blotter/blob/master/papers/_posts/2012-04-30-bedford-canalization.md"><code class="language-plaintext highlighter-rouge">2012-04-30-bedford-canalization.md</code></a>.   Papers have the following YAML metadata:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 layout: paper
 title: Canalization of the evolutionary trajectory of the human influenza virus
 image: /images/papers/bedford-canalization.png
@@ -138,32 +141,36 @@ pdf: /pdfs/papers/bedford-canalization.pdf
 supplement: /pdfs/papers/bedford-canalization-supp.pdf
 github: http://github.com/trvrb/canalization
 ---
-</code></pre></div>
-<p>Tags <code>layout</code>, <code>title</code>, <code>image</code>, <code>authors</code>, <code>year</code>, <code>ref</code>, <code>journal</code> are required.  Tags <code>pdf</code>, <code>supplement</code>, <code>github</code> are optional.  The image should be a 120x120 pixel tile.  All paper images and PDFs should reside in <a href="https://github.com/blab/blotter/tree/master/images/papers"><code>images/papers/</code></a> and <a href="https://github.com/blab/blotter/tree/master/pdfs/papers"><code>pdfs/papers/</code></a> respectively.</p>
+</code></pre></div></div>
 
-<h2>Projects</h2>
+<p>Tags <code class="language-plaintext highlighter-rouge">layout</code>, <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">image</code>, <code class="language-plaintext highlighter-rouge">authors</code>, <code class="language-plaintext highlighter-rouge">year</code>, <code class="language-plaintext highlighter-rouge">ref</code>, <code class="language-plaintext highlighter-rouge">journal</code> are required.  Tags <code class="language-plaintext highlighter-rouge">pdf</code>, <code class="language-plaintext highlighter-rouge">supplement</code>, <code class="language-plaintext highlighter-rouge">github</code> are optional.  The image should be a 120x120 pixel tile.  All paper images and PDFs should reside in <a href="https://github.com/blab/blotter/tree/master/images/papers"><code class="language-plaintext highlighter-rouge">images/papers/</code></a> and <a href="https://github.com/blab/blotter/tree/master/pdfs/papers"><code class="language-plaintext highlighter-rouge">pdfs/papers/</code></a> respectively.</p>
 
-<p>Each project exists as a separate git repository.  To add a project and have it automatically redeploy when the project&#39;s GitHub repo is updated requires the following two steps:</p>
+<h2 id="projects">Projects</h2>
 
-<h3>1. Add the project to the Jekyll index</h3>
+<p>Each project exists as a separate git repository.  To add a project and have it automatically redeploy when the project’s GitHub repo is updated requires the following two steps:</p>
 
-<p>Open the file <a href="https://github.com/blab/blotter/blob/master/_config.yml"><code>_config.yml</code></a> and append the full repo name to the YAML <code>projects</code> listing.  This should then look like:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">projects:
+<h3 id="1-add-the-project-to-the-jekyll-index">1. Add the project to the Jekyll index</h3>
+
+<p>Open the file <a href="https://github.com/blab/blotter/blob/master/_config.yml"><code class="language-plaintext highlighter-rouge">_config.yml</code></a> and append the full repo name to the YAML <code class="language-plaintext highlighter-rouge">projects</code> listing.  This should then look like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>projects:
   - trvrb/coaltrace
   - trvrb/stem
   ...
   - owner/project-name
-</code></pre></div>
-<p>where <code>owner</code> and <code>project-name</code> is specific to the new project.  Commit this change to the <a href="https://github.com/blab/blotter">blotter</a> GitHub repo. </p>
+</code></pre></div></div>
 
-<h3>2. Set a webhook from GitHub</h3>
+<p>where <code class="language-plaintext highlighter-rouge">owner</code> and <code class="language-plaintext highlighter-rouge">project-name</code> is specific to the new project.  Commit this change to the <a href="https://github.com/blab/blotter">blotter</a> GitHub repo.</p>
 
-<p>From the project repo, go to Settings / Service Hooks / WebHook URLs, and add <code>http://blotter-hook.herokuapp.com/</code> to the list.</p>
+<h3 id="2-set-a-webhook-from-github">2. Set a webhook from GitHub</h3>
 
-<h2>Team</h2>
+<p>From the project repo, go to Settings / Service Hooks / WebHook URLs, and add <code class="language-plaintext highlighter-rouge">http://blotter-hook.herokuapp.com/</code> to the list.</p>
 
-<p>Each team member has a Markdown file in <a href="https://github.com/blab/blotter/tree/master/team/_posts"><code>team/_posts/</code></a>.  File names are join date followed by first and last name, like <a href="https://github.com/blab/blotter/blob/master/team/_posts/2013-09-30-trevor-bedford.md"><code>2013-09-30-trevor-bedford.md</code></a>.  YAML follows:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">---
+<h2 id="team">Team</h2>
+
+<p>Each team member has a Markdown file in <a href="https://github.com/blab/blotter/tree/master/team/_posts"><code class="language-plaintext highlighter-rouge">team/_posts/</code></a>.  File names are join date followed by first and last name, like <a href="https://github.com/blab/blotter/blob/master/team/_posts/2013-09-30-trevor-bedford.md"><code class="language-plaintext highlighter-rouge">2013-09-30-trevor-bedford.md</code></a>.  YAML follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 layout: member
 title: Trevor Bedford
 position: Principal investigator
@@ -174,8 +181,9 @@ github: trvrb
 image: /images/team/trevor-bedford.jpg
 cv: /pdfs/team/bedford-cv.pdf
 ---
-</code></pre></div>
-<p>Tags <code>layout</code>, <code>title</code>, <code>last name</code>, <code>position</code>, <code>handle</code>, <code>image</code> are required, while <code>twitter</code>, <code>github</code>, <code>cv</code> are optional.  The image should be a 260x260 pixel tile.  All member images and PDFs should be placed in <a href="https://github.com/blab/blotter/tree/master/images/team"><code>images/team/</code></a> and <a href="https://github.com/blab/blotter/tree/master/pdfs/team"><code>pdfs/team/</code></a> respectively.</p>
+</code></pre></div></div>
+
+<p>Tags <code class="language-plaintext highlighter-rouge">layout</code>, <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">last name</code>, <code class="language-plaintext highlighter-rouge">position</code>, <code class="language-plaintext highlighter-rouge">handle</code>, <code class="language-plaintext highlighter-rouge">image</code> are required, while <code class="language-plaintext highlighter-rouge">twitter</code>, <code class="language-plaintext highlighter-rouge">github</code>, <code class="language-plaintext highlighter-rouge">cv</code> are optional.  The image should be a 260x260 pixel tile.  All member images and PDFs should be placed in <a href="https://github.com/blab/blotter/tree/master/images/team"><code class="language-plaintext highlighter-rouge">images/team/</code></a> and <a href="https://github.com/blab/blotter/tree/master/pdfs/team"><code class="language-plaintext highlighter-rouge">pdfs/team/</code></a> respectively.</p>
 
 		</div>	
 	</div>			
