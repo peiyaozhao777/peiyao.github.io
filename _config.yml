@@ -1,44 +1,95 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+name: NARS Lab
+description: Network science and machine learning for accessible, resilient and sustainable communities.
+url: https://narslab.org
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+markdown: redcarpet
+permalink: /:categories/:title/
+future: true
 
-# Build settings
-theme: minima
 plugins:
-  - jekyll-feed
+  - jekyll-twitter-plugin
+  - jekyll-include-cache
+
+redcarpet:
+  extensions:
+   - tables
+   - no_intra_emphasis
+   - autolink
+   - superscript
+   - strikethrough
+
+exclude:
+  - "*.branches"
+  - "*.class"
+  - "*.cpp"
+  - "*.csv"
+  - "*.fasta"
+  - "*.gz"
+  - "*.h"
+  - "*.hh"
+  - "*.ipynb"
+  - "*.jar"
+  - "*.java"
+  - "*.kml"
+  - "*.log"
+  - "*.mcc"
+  - "*.nb"
+  - "*.newick"
+  - "*.nex"
+  - "*.py"
+  - "*.R"
+  - "*.rb"
+  - "*.Rmd"
+  - "*.tiff"
+  - "*.tips"
+  - "*.trees"
+  - "*.tsv"
+  - "*.txt"
+  - "*.xml"
+  - "*.zip"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "projects/nextflu/auspice/index.html"
+  - "projects/nextflu/auspice/css/*"
+  - "projects/nextflu/auspice/h3n2/*"
+  - "projects/nextflu/auspice/h1n1pdm/*"
+  - "projects/nextflu/auspice/vic/*"
+  - "projects/nextflu/auspice/yam/*"
+  - "projects/nextflu/auspice/zika/*"
+  - "projects/nextflu/auspice/zibra/*"
+  - "projects/nextflu/auspice/muttree/*"
+  - "projects/nextflu/auspice/reports/*"
+  - "projects/nextflu/auspice/js/*"
+  - "projects/nextflu/auspice/cdc/*"
+  - "projects/nextflu/auspice/gisaid/*"
+  - "projects/auspice/src/*"
+  - "projects/siv-cst/beast/main/empiricalTrees/xml/*"
+  - "projects/siv-cst/beast/supplement/discreteTraits/xml/*"
+  - "projects/siv-cst/beast/supplement/empiricalTrees/xml/*"
+  - "projects/h3n2-reassortment/auspice/*"
+  - "projects/dengue-antigenic-dynamics/titer_model/seasia_output/*"
+  - "projects/h5n1-cambodia/data/tree-jsons/*"
+  - "projects/zika-colombia/supplemental-analysis/rarefaction-curves/*"
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+projects:
+  - narslab/covid-analysis
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
 # the internal "default list".
 #
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
