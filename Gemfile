@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # jekyll
 gem "jekyll", "3.9.0"
-gem "redcarpet"
+#gem "redcarpet"
 gem "execjs"
 
 # compiling less
