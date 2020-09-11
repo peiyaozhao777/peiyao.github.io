@@ -265,7 +265,7 @@ PLATFORMS
 
 DEPENDENCIES
   execjs
-  github-pages (~> 207)
+  github-pages
   jekyll (= 3.9.0)
   jekyll-include-cache
   jekyll-twitter-plugin
