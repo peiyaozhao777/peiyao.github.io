@@ -2,7 +2,6 @@ name: NARS Lab
 description: Network science and machine learning for accessible, resilient and sustainable communities.
 url: https://narslab.org
 
-destination: ./build
 markdown: kramdown
 permalink: /:categories/:title/
 future: true
