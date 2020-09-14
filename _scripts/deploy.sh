@@ -1,9 +1,9 @@
 URL=https://github.com/narslab/narslab.github.io.git
 BRANCH=gh-pages
 BRANCH_FROM=master
-DEPLOY_CONFIG=$4
-BUNDLE=$5
-DRAFTS=$6
+DEPLOY_CONFIG=
+BUNDLE=
+DRAFTS=
 SRC=$(pwd)
 TEMP=$(mktemp -d -t jgd-XXX)
 trap "rm -rf ${TEMP}" EXIT
@@ -19,11 +19,12 @@ cd "${CLONE}"
 echo -e "\nBuilding Jekyll site:"
 rm -rf _site
 
-if [ -r ${DEPLOY_CONFIG} ]; then
-  ${BUNDLE} exec jekyll build --config _config.yml,${DEPLOY_CONFIG} ${DRAFTS}
-else
-  ${BUNDLE} exec jekyll build ${DRAFTS}
-fi
+# if [ -r ${DEPLOY_CONFIG} ]; then
+#   ${BUNDLE} exec jekyll build --config _config.yml,${DEPLOY_CONFIG} ${DRAFTS}
+# else
+#   ${BUNDLE} exec jekyll build ${DRAFTS}
+# fi
+bundle exec jekyll build
 
 if [ ! -e _site ]; then
   echo -e "\nJekyll didn't generate anything in _site!"
