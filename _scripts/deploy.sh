@@ -49,6 +49,7 @@ echo -e "\nDeploying into ${BRANCH} branch:"
 rm -rf *
 cp -R ${TEMP}/_site/* .
 rm -f README.md
+touch .nojekyll
 git add .
 git commit -am "new version $(date)" --allow-empty
 git push origin ${BRANCH} 2>&1 | sed 's|'$URL'|[skipped]|g'
