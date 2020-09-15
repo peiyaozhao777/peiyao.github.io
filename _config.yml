@@ -50,7 +50,7 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "projects/covid-analysis/results/*"
-  - "projects/covid-analysis/NYT*"
+  - "projects/covid-analysis/NYT/*"
   - "projects/covid-analysis/mobility/*"
   - "projects/covid-analysis/rscripts/*"
   - "projects/covid-analysis/.ipynb_checkpoints/*"
