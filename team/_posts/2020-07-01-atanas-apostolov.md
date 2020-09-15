@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Atanas (Nasko) Apostolov
-position: Graduate Research Assistant (MSc)
+position: Masters Student (MSc)
 handle:
 github: naskoap
 twitter:
