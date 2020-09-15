@@ -34,7 +34,7 @@ layout: post
 title: A brief history of complexity science
 author: Jimi Oke
 link: URL
-image: /images/blog/IAMGE.png
+image: /images/blog/IMAGE.png
 ---
 ```
 
