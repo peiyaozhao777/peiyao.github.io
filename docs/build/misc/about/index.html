@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>About</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- RSS feed -->
+	<link rel="alternate" type="application/rss+xml" title="NARS Lab" href="http://localhost:4000/feed.xml">
+
+    <!-- Customized Bootstrap + Font Awesome + Solarized -->
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/images/favicon.png"/>
+
+	<!-- Typekit -->
+	<script>
+	  (function(d) {
+		var config = {
+		  kitId: 'xeu8jut',
+		  scriptTimeout: 3000
+		},
+		h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	  })(document);
+	</script>
+
+	<!-- Google Analytics -->
+	<!-- <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-26244371-2', 'bedford.io');
+		ga('send', 'pageview');
+
+	</script> -->
+
+	<!-- jQuery -->
+	<script src="/js/jquery.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="/js/transition.js"></script>
+	<script src="/js/collapse.js"></script>
+
+</head>
+
+<body>
+
+	<div id="header">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-element" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<object class="logo navbar-brand" data="/images/logo.svg" type="image/svg+xml"></object>
+					<a class="navbar-brand" href="/">N A R S</a>
+					
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-element">
+					<ul class="nav navbar-nav navbar-right">
+						
+						<li>
+						
+						<a href="/blog/">Blog</a>
+						</li>
+						
+						<li>
+						
+						<a href="/papers/">Publications</a>
+						</li>
+						
+						<li>
+						
+						<a href="/projects/">Projects</a></li>
+						
+						<li>
+						
+						<a href="/courses/">Courses</a></li>
+						
+						<li>
+						
+						<a href="/team/">Team</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+
+	<div class="row">
+	<div class="col-md-12">
+		<div class="bigtitle">
+			About
+		</div>	
+	</div>
+</div>	
+
+<div class="bigspacer"></div>
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">	
+		<div class="post">
+			<h2 id="purpose">Purpose</h2>
+
+<p>This is the research website of the Networks for Accessibility, Resilience and Sustainability Laboratory.
+It highlights our research <a href="/projects/">projects</a>, <a href="/papers/">papers</a>, <a href="/courses/">courses</a> and <a href="/blog/">news</a>.
+The projects page summarizes those documented on NARS Lab’s <a href="https://github.com/narslab">GitHub</a> team.</p>
+
+<h2 id="source-code">Source code</h2>
+
+<p>All the source code that generated this site was repurposed from Trevor Bedford’s <a href="http://bedford.io">website</a>, which is <a href="https://github.com/blab/blotter">freely available on GitHub</a>.<br />
+and is placed under the <a href="https://github.com/blab/blotter#license">MIT license</a>.
+The files specifically generating NARS Lab’s website are available on <a href="https://github.com/narslab/narslab.github.io">Github</a> as well.</p>
+
+<h2 id="web-stack">Web stack</h2>
+
+<h3 id="build">Build</h3>
+
+<p>The site is built with <a href="http://jekyllrb.com/">Jekyll</a> and versioned on Github.
+Content is stored as <a href="http://daringfireball.net/projects/markdown/">Markdown</a> files with a bit of <a href="http://yaml.org/">YAML</a> at the top.  This keeps content mostly semantic and can be easily processed.<br />
+In addition to including blog posts, simple Markdown files are included for papers and people, in which case the YAML metadata is bit broader, indicating things like paper PDFs or Twitter handles.</p>
+
+<p>Again, thanks to Trevor Bedford’s code, project data are pulled in automatically by cloning the project repo and project metadata is gathered using <a href="http://octokit.github.io/octokit.rb/">Octokit</a> to access the GitHub API via a <a href="https://github.com/blab/blotter/blob/master/_scripts/generate-project-data.rb">preprocessing script</a>.  This allows project pages to display things like a list of contributors and recent commits.</p>
+
+<h3 id="design">Design</h3>
+
+<p>This site currently retains the original design elements of <a href="http://bedford.io">bedford.io</a>.
+Site layout and design are based on <a href="http://getbootstrap.com/">Bootstrap</a>.<br />
+Other elements are:</p>
+
+<ul>
+  <li>Fonts: <a href="http://typekit.com/">Typekit</a></li>
+  <li>Icons: <a href="http://fontawesome.io/">Font Awesome</a></li>
+  <li>Syntax Highlighting: <a href="http://ethanschoonover.com/solarized">Solarized</a></li>
+  <li>Equation rendering: <a href="http://khan.github.io/KaTeX/">KaTeX</a></li>
+  <li>Infinite scroll: <a href="https://jquery.com/">jQuery</a> and <a href="https://github.com/blab/blotter/blob/master/js/infinite-scroll.js">custom script</a></li>
+</ul>
+
+<h3 id="deploy">Deploy</h3>
+
+<p>This site is deployed to GitHub Pages.</p>
+
+		</div>	
+	</div>			
+	<div class="col-md-2"></div>
+</div>	
+
+
+
+
+
+
+	</div>
+
+	<div id="footer"><span style="display:none">foo</span></div>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>covid-analysis/JHU/</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- RSS feed -->
+	<link rel="alternate" type="application/rss+xml" title="NARS Lab" href="https://narslab.org/feed.xml">
+
+    <!-- Customized Bootstrap + Font Awesome + Solarized -->
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/images/favicon.png"/>
+
+	<!-- Typekit -->
+	<script>
+	  (function(d) {
+		var config = {
+		  kitId: 'xeu8jut',
+		  scriptTimeout: 3000
+		},
+		h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	  })(document);
+	</script>
+
+	<!-- Google Analytics -->
+	<!-- <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-26244371-2', 'bedford.io');
+		ga('send', 'pageview');
+
+	</script> -->
+
+	<!-- jQuery -->
+	<script src="/js/jquery.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="/js/transition.js"></script>
+	<script src="/js/collapse.js"></script>
+
+</head>
+
+<body>
+
+	<div id="header">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-element" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<object class="logo navbar-brand" data="/images/logo.svg" type="image/svg+xml"></object>
+					<a class="navbar-brand" href="/">N A R S Lab</a>
+					
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-element">
+					<ul class="nav navbar-nav navbar-right">
+						
+						<li>
+						
+						<a href="/blog/">Blog</a>
+						</li>
+						
+						<li>
+						
+						<a href="/papers/">Publications</a>
+						</li>
+						
+						<li>
+						
+						<a href="/projects/">Projects</a></li>
+						
+						<li>
+						
+						<a href="/courses/">Courses</a></li>
+						
+						<li>
+						
+						<a href="/team/">Team</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+
+	
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="bigtitle titlebox">
+			<ol class="breadcrumb">
+			
+			
+				
+				
+				
+				<li><a class="off" href="/projects/covid-analysis/">covid-analysis</a></li>
+				
+			
+				
+				
+				
+				<li>JHU</li>
+				
+			
+			</ol>
+		</div>
+		<p>
+		<div class="head">
+			Exploratory COVID-19 analysis
+		</div>
+	</div>
+</div>
+
+<div class="bigspacer"></div>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="bigspacer"></div>
+		<div class="smallhead">
+			Source code
+		</div>
+		<div class="pad-left note">
+			<div class="smallspacer"></div>
+			<i class="fa fa-cog fa-fw"></i>
+			<a class="off" href="https://github.com/narslab/covid-analysis">github.com/narslab/<wbr>covid-analysis</a>
+		</div>
+		<div class="bigspacer"></div>
+		<div class="smallhead">
+			Contributors
+		</div>
+		<div class="pad-left note">
+			
+			<div class="smallspacer"></div>
+			<div>
+				<a class="off" href="https://github.com/jimioke">
+    			<img class="pull-left avatar" src="https://avatars1.githubusercontent.com/u/6685350?v=4&s=50">
+    			<div class="handlebox" style="padding-left:5px;"">
+    				jimioke
+    			</div>
+ 				</a>
+ 			</div>
+ 			
+			<div class="smallspacer"></div>
+			<div>
+				<a class="off" href="https://github.com/naskoap">
+    			<img class="pull-left avatar" src="https://avatars0.githubusercontent.com/u/10101246?v=4&s=50">
+    			<div class="handlebox" style="padding-left:5px;"">
+    				naskoap
+    			</div>
+ 				</a>
+ 			</div>
+ 			
+		</div>
+		<div class="bigspacer"></div>
+		<div class="smallhead">
+			Latest commits
+		</div>
+		<div class="pad-left smallnote">
+			<ul class="list-unstyled">
+			
+				<div class="smallspacer"></div>
+				<li>
+					<i class="fa fa-check-square-o fa-fw"></i>
+					<a class="off" href="https://github.com/narslab/covid-analysis/commit/8936edb52d383e44be63b92a0d04271d6981054c">
+					15 Sep 2020 - <span class="text-gray">removed extraneous files - usa county street data</span>
+					</a>
+				</li>
+			
+				<div class="smallspacer"></div>
+				<li>
+					<i class="fa fa-check-square-o fa-fw"></i>
+					<a class="off" href="https://github.com/narslab/covid-analysis/commit/a6250d0dbc7d581e5e17d583a732ad82efd5fbb4">
+					15 Sep 2020 - <span class="text-gray">removed extraneous files</span>
+					</a>
+				</li>
+			
+				<div class="smallspacer"></div>
+				<li>
+					<i class="fa fa-check-square-o fa-fw"></i>
+					<a class="off" href="https://github.com/narslab/covid-analysis/commit/0b418e7de42f52b6ac6311740e6960611928a0a4">
+					03 Aug 2020 - <span class="text-gray">Merge pull request #5 from narslab/feature/expl_analysis
+
+VAR model (single differencing)</span>
+					</a>
+				</li>
+			
+				<div class="smallspacer"></div>
+				<li>
+					<i class="fa fa-check-square-o fa-fw"></i>
+					<a class="off" href="https://github.com/narslab/covid-analysis/commit/899102e14d243db04ed21a3f876c301c8f8c76a2">
+					03 Aug 2020 - <span class="text-gray">VAR model (single differencing)</span>
+					</a>
+				</li>
+			
+				<div class="smallspacer"></div>
+				<li>
+					<i class="fa fa-check-square-o fa-fw"></i>
+					<a class="off" href="https://github.com/narslab/covid-analysis/commit/565455e538f4326bc6ede6464c139e2db291fa37">
+					03 Aug 2020 - <span class="text-gray">reorganizing folders for R scripts</span>
+					</a>
+				</li>
+			
+			</ul>
+		</div>
+		<div class="spacer"></div>
+
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			<!-- 63 -->
+			
+		
+			
+			<!-- 64 -->
+			
+		
+			
+			<!-- 65 -->
+			
+		
+			
+			<!-- 66 -->
+			
+		
+			
+			<!-- 67 -->
+			
+		
+			
+			<!-- 68 -->
+			
+		
+			
+			<!-- 69 -->
+			
+		
+			
+			<!-- 70 -->
+			
+		
+			
+			<!-- 71 -->
+			
+		
+			
+		
+
+		
+		<div class="smallhead">
+			Pages
+		</div>
+		<div class="pad-left smallnote">
+			<ul class="list-unstyled">
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/archived_data/archived_time_series/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / archived_data / archived_time_series / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/archived_data/archived_daily_case_updates/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / archived_data / archived_daily_case_updates / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/archived_data/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / archived_data / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/who_covid_19_situation_reports/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / who_covid_19_situation_reports / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/csse_covid_19_data/csse_covid_19_daily_reports_us/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / csse_covid_19_data / csse_covid_19_daily_reports_us / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/csse_covid_19_data/csse_covid_19_daily_reports/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / csse_covid_19_data / csse_covid_19_daily_reports / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/csse_covid_19_data/csse_covid_19_time_series/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / csse_covid_19_data / csse_covid_19_time_series / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/JHU/">
+					<i class="fa fa-folder-open-o"></i>  / JHU / 
+					</a>
+				</li>
+				
+			
+				
+				<div class="smallspacer"></div>
+				<li>
+					<a class="off" href="/projects/covid-analysis/">
+					<i class="fa fa-folder-open-o"></i>  / 
+					</a>
+				</li>
+				
+			
+				
+			
+			</ul>
+		</div>
+		<div class="spacer"></div>
+		
+
+	</div>
+	<div class="col-md-8">
+		<div class="post">
+			<p>
+			<h1 id="2019-novel-coronavirus-covid-19-2019-ncov-data-repository-by-johns-hopkins-csse">2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE</h1>
+
+<p>This is the data repository for the 2019 Novel Coronavirus Visual Dashboard operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). Also, Supported by ESRI Living Atlas Team and the Johns Hopkins University Applied Physics Lab (JHU APL).</p>
+
+<p><br /></p>
+
+<p><b>Visual Dashboard (desktop):</b><br />
+https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6
+<br /><br />
+<b>Visual Dashboard (mobile):</b><br />
+http://www.arcgis.com/apps/opsdashboard/index.html#/85320e2ea5424dfaaa75ae62e5c06e61
+<br /><br />
+<b>Lancet Article:</b><br />
+<a href="https://doi.org/10.1016/S1473-3099(20)30120-1">An interactive web-based dashboard to track COVID-19 in real time</a>
+<br /><br />
+<b>Provided by Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE):</b><br />
+https://systems.jhu.edu/
+<br /><br />
+<b>Data Sources:</b><br /></p>
+<ul>
+  <li>World Health Organization (WHO): https://www.who.int/ <br /></li>
+  <li>DXY.cn. Pneumonia. 2020. http://3g.dxy.cn/newh5/view/pneumonia.  <br /></li>
+  <li>BNO News: https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/  <br /></li>
+  <li>National Health Commission of the People’s Republic of China (NHC): <br />
+ http://www.nhc.gov.cn/xcs/yqtb/list_gzbd.shtml <br /></li>
+  <li>China CDC (CCDC): http://weekly.chinacdc.cn/news/TrackingtheEpidemic.htm <br /></li>
+  <li>Hong Kong Department of Health: https://www.chp.gov.hk/en/features/102465.html <br /></li>
+  <li>Macau Government: https://www.ssm.gov.mo/portal/ <br /></li>
+  <li>Taiwan CDC: https://sites.google.com/cdc.gov.tw/2019ncov/taiwan?authuser=0 <br /></li>
+  <li>US CDC: https://www.cdc.gov/coronavirus/2019-ncov/index.html <br /></li>
+  <li>Government of Canada: https://www.canada.ca/en/public-health/services/diseases/coronavirus.html <br /></li>
+  <li>Australia Government Department of Health: https://www.health.gov.au/news/coronavirus-update-at-a-glance <br /></li>
+  <li>European Centre for Disease Prevention and Control (ECDC): https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases</li>
+  <li>Ministry of Health Singapore (MOH): https://www.moh.gov.sg/covid-19</li>
+  <li>Italy Ministry of Health: http://www.salute.gov.it/nuovocoronavirus</li>
+  <li>1Point3Arces: https://coronavirus.1point3acres.com/en</li>
+  <li>WorldoMeters: https://www.worldometers.info/coronavirus/</li>
+  <li>COVID Tracking Project: https://covidtracking.com/data. (US Testing and Hospitalization Data. We use the maximum reported value from “Currently” and “Cumulative” Hospitalized for our hospitalization number report ed for each state.)</li>
+</ul>
+
+<p><br />
+<b>Additional Information about the Visual Dashboard:</b><br />
+https://systems.jhu.edu/research/public-health/ncov/
+<br /><br /></p>
+
+<p><b>Contact Us: </b><br /></p>
+<ul>
+  <li>Email: jhusystems@gmail.com
+<br /><br /></li>
+</ul>
+
+<p><b>Terms of Use:</b><br /></p>
+
+<p>This GitHub repo and its contents herein, including all data, mapping, and analysis, copyright 2020 Johns Hopkins University, all rights reserved, is provided to the public strictly for educational and academic research purposes.  The Website relies upon publicly available data from multiple sources, that do not always agree. The Johns Hopkins University hereby disclaims any and all representations and warranties with respect to the Website, including accuracy, fitness for use, and merchantability.  Reliance on the Website for medical guidance or use of the Website in commerce is strictly prohibited.</p>
+
+		</div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+
+
+	</div>
+
+	<div id="footer"><span style="display:none">foo</span></div>
+
+</body>
+</html>
