@@ -64,7 +64,8 @@ exclude:
   - vendor/ruby/
 projects:
   - narslab/covid-analysis
-
+  - narslab/tree-risk-ai
+  - narslab/pvta-odx
 
 # Exclude from processing.
 # The following items will not be processed, by default.
