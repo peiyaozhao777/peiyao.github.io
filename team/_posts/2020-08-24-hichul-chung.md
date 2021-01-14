@@ -6,7 +6,7 @@ handle:
 github:  
 twitter:  
 scholar:   
-image:
+image: /images/team/hichul-chung.jpg
 cv:
 ---
 
