@@ -3,7 +3,7 @@ layout: member
 title: Hichul Chung
 position: Undergraduate Student (BS)
 handle:  
-github:  
+github: hichul219
 twitter:  
 scholar:   
 image: /images/team/hichul-chung.jpg
