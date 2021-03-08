@@ -6,6 +6,6 @@ handle:
 github: ma-mohammed
 twitter:
 scholar:
-image:
+image: /images/team/mohammed-mohammed.jpg
 cv:
 ---

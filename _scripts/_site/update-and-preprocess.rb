@@ -14,7 +14,7 @@ config["projects"].each do |repo|
 	Dir.chdir($basedir + "/projects/" + name)			# drop into blotter dir	
 	`git clean -f`										# remove untracked files, but keep directories
 	`git reset --hard HEAD`								# bring back to head state
-	`git pull origin master`							# git pull					
+	`git pull origin main`							# git pull					
 end
 
 Dir.chdir($basedir)
