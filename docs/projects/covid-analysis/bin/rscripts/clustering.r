@@ -24,8 +24,8 @@ clusterFit <- function(dm, m) {
 results = clusterFit(transpose(d), "ward.D")
 
 #optClustWardScaled9 <- NbClust(as.data.frame(scaled.f9scores),distance="manhattan", method="ward.D2",min.nc=10,max.nc=15,index="gap")
-#optClustWardScaled9 <- NbClust(diss=dis9scaled.mat, method="ward.D2",min.nc=7,index="all")
-
+#fitness_metrics <- NbClust(diss=as.matrix(transpose(d)), distance=NULL,method="ward.D2",min.nc=7) #,index="all")
+#needs to be fixed...
 
 ## Group countries into clusters based on number of clusters desired
 getClusters <- function (clusfit, k, labels) {
@@ -114,10 +114,10 @@ plotD <- function (clusfit,kk,meth,labels)
   d1=color_branches(dend,k=kk,col = colors) # brewer.pal(kk,"Paired"))
   dcol <- get_leaves_branches_col(d1)
   d1 <- color_labels(d1,k=kk,col=colors) #brewer.pal(kk,"Paired"))
-  png(file=paste0("../results/Dendrogram-",kk,"-clusters-","-Method-",meth,".png"),family="CM Sans", width=2400,height=2000, res=240) #5300 #2600
+  #png(file=paste0("../results/Dendrogram-",kk,"-clusters-","-Method-",meth,".png"),family="CM Sans", width=2400,height=2000, res=240) #5300 #2600
   plot(d1)
   #colored_bars(dcol, dend, rowLabels = c("13 Typologies"))
-  dev.off()
+  #dev.off()
 }
 
 plotD(results,num_clust,"Ward.D2",row.names(d))

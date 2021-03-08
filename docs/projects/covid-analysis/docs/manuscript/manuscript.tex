@@ -1,14 +1,17 @@
-\documentclass[preprint, 12pt]{elsarticle}
+\documentclass[preprint, 11pt]{elsarticle}
 \usepackage{geometry}
-\geometry{top=.8in, left=.8in,right=.8in,bottom=.8in}
+\geometry{top=1in, left=1.3in,right=1.3in,bottom=1in}
 
 \usepackage{booktabs,calc,soul,xcolor}
+\setstcolor{red}
 
- 
+\usepackage{marginnote} 
 % Marginpar width
 %Marginpar width
 \newcommand{\pts}[1]{\marginpar{ \small\hspace{0pt} \textit{[#1]} } }
-\setlength{\marginparwidth}{.5in}
+\setlength{\marginparwidth}{1.1in}
+
+
 %\reversemarginpar
 %\setlength{\marginparsep}{.02in}
 
@@ -139,12 +142,9 @@
 \begin{abstract}
 In this paper we examine the effects of COVID-19 on mobility, segmented by transportation type, as well as social activity such as retail and recreation, workplaces and residential, and their interdependencies.
 Using time series data from 63 countries across five continents,
-we investigate patterns in activity and mobility trends from January through July.
-Our clustering approach yields four clusters of countries with similar behavior.
-We plan to estimate vector autoregression models  to analyze the relationship between activity changes, mobility changes and COVID-19 growth.
-We will also fit cluster-level models and a global model which includes exogenous variables (such as interventions).
+we investigate patterns in activity and mobility trends from mid-February through August.
 Our findings yield insights into how various activities have been impacted by COVID-19 and vice-versa.
-We expect that our model outcomes will guide policymakers to adopt  appropriate  measures to mitigate and safely recover from the ongoing pandemic, as well as future ones.
+\marginnote{\scriptsize\rd We will revisit the abstract once the manuscript itself is done.}
 \end{abstract}
 
 \begin{keyword}
@@ -164,6 +164,8 @@ We expect that our model outcomes will guide policymakers to adopt  appropriate 
 }
 
 
+\marginnote{\scriptsize\rd I want to you to focus your near-term writing efforts on the Introduction, Relevant Work
+  (Literature Review) and Data and Methods (Sections 3.1 and 3.2) }
 COVID-19 has had a severe impact on mobility and social activities since initial reports of the disease emerged in late 2019.
 By May 2020 most countries had implemented social distancing measures and imposed strict travel restrictions to curtail the spread of the virus
 both within their borders and internationally.
@@ -191,79 +193,111 @@ First, we cluster the countries to discover patterns in mobility and activity ch
 Second, we estimate cluster-representative models using the vector autoregression (VAR) framework, allowing for time lags across all endogenous variables, and thus including dynamic interdependencies among them.
 These models explain which activities impact COVID-19 outcomes and vice versa, providing potential pathways for understanding behavioral responses to the spread of the pandemic and a greater understanding of the disparities and similarities across nationwide outcomes.
 
-\subsection{Significance}
 
 
-\subsection{Related work}
-\hl{Here, 3-4 paragraphs summarizing efforts to analyze activity-mobility patterns (i) historically, (ii) in context of COVID-19, and then (iii) brief history and application of VAR modeling.} 
+\section{Relevant work}
+\subsection{Modeling the activity and mobility impacts of COVID-19}
 
-\section{Data}
-We use transportation data provided by Apple\footnote{\url{https://www.apple.com/covid19/mobility}} along with Community Mobility Reports compiled by Google\footnote{\url{https://www.google.com/covid19/mobility/}}. %The data is publicly available at:
-The new confirmed cases global data set is provided by the Johns Hopkins University COVID-19 Data initiative\footnote{\url{https://github.com/CSSEGISandData/COVID-19}}.
-Apple's data set focuses on transportation types (walking, driving, transit) whereas Google tracks movement trends by region and segments them into categories such as residential, workplace and transit. Our integrated data set captures changes in requests for directions from January 22 to July 14 as well as aggregated location data for a variety of categorized places. The data shows us the change in visitors from February 15 to July 12 compared to a baseline of days (January 3 - February 6, 2020). By tracking user requests of their Maps application, Apple contributes a snapshot of incidental trips as opposed to actual foot traffic which is the approach taken by Google for their Community Mobility Reports. 
-The sources are summarized in \autoref{tab:sources} and the variables are described in \autoref{tab:variables}.
-The integrated dataset (along with the code and plots generated for this paper) is publicly available on Github.\footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
+\hl{Summarize efforts to analyze activity-mobility patterns historically and now in the context of
+  COVID-19, and then}
+  
+\subsection{Global vector autoregression}
+\hl{Brief history and application of G/VAR modeling to date (in all areas - chiefly macroeconomic). I can help a bit
+  here, but this is a critical section. It will also help you consolidate your grasp of GVAR developments to date.}
 
+\section{Data and Methods}
+\hl{Provide a preamble summarizing what this section entails.}
 
-\begin{table}[h!]\small
-  \centering
-  \caption{Summary of data sources}
-  \label{tab:sources}
-\begin{tabular}{ll}\toprule
-\bf Source                         & \bf Overview                                                                              \\\midrule
-Johns Hopkins University          & Time series summary globally.                                                               \\
-Apple Maps                        & Compared to a baseline volume on January 13th, 2020.                                          \\
-  Google Community Mobility Reports & Compared to a baseline day \\
-  & (median value over period from Jan 3 to Feb 6, 2020)\\\bottomrule
-\end{tabular}
-\end{table}
+\subsection{Data sources and variables}
+We use four disparate data sources in performing our COVID-19 mobility analysis. The endogenous category represents the variables in our model which we aim to predict. It covers daily COVID-19 counts, a global data set of new confirmed cases and deaths provided by Johns Hopkins University\footnote{\url{https://github.com/CSSEGISandData/COVID-19}}, as well as an activity benchmark – movement trends tracked by Google which are segmented by geographic region and type such as residential, workplace and transit. Google’s Community Mobility reports capture aggregated location data for a variety of categorized places from February 15 to August 31. 
+
+The Google data set\footnote{\url{https://www.google.com/covid19/mobility/}} reveals the change in the number of visitors from that period compared to a pre-COVID baseline (January 3 – February 6, 2020). Google tracks actual foot traffic for their Reports which is reflective of the trips taken in each country. In contrast, Apple offers a snapshot of user requests made on its Apple Maps web service which constitutes hypothetical traffic and is not the focus of this research. However, the set of countries with available Apple Maps data influenced the geographic distribution in our analysis due to higher technological development in these areas.
+
+The exogenous category represents measures implemented by governments worldwide in response to the pandemic and is put together by ACAPS – a non-profit project based in Geneva, Switzerland – along with the United Nations and other sources. The exogenous variables are external to the model.
+
+The deterministic category spans a range of world development indicators tracked by the World Bank. The variables included in this model are primarily demographic and economic, measuring population growth and GDP. Unlike the endogenous and exogenous data sets which are presented in a time-series format, deterministic variables are collected for a single year (2015).
+
+Finally, we utilize a flight data set measuring the number of incoming and outgoing flights from a specified set of countries. This data set is used to calculate a country-specific weight matrix passed as an argument to the GVAR model. The flight data is obtained from the travel data intelligence agency Airsavvi. 
+
+The sources are summarized in \autoref{tab:sources} and the variables are described in \autoref{tab:variables}. The integrated dataset (along with the code and plots generated for this paper) is publicly available on Github.\footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
+
 
 \begin{table}[h!]
   \centering
-\caption{Summary of variables}
-\label{tab:variables}
-\small
+  \caption{Summary of data sources}
+  \label{tab:sources}
+  \footnotesize
 \begin{tabular}{ll}\toprule
-\textbf{Variable}                                         & \textbf{Description}                                    \\\midrule
-confirmed\_cases                                         & Newly confirmed cases of COVID-19              \\
-driving                                                  & Requests for driving directions in Apple Maps.    \\
-walking                                                  & Requests for walking directions in Apple Maps   \\
-transit                                                  & Requests for transit directions in Apple Maps   \\
-retail\_and\_recreation\_percent\_change\_from\_baseline & Retail and recreation movement trends.            \\
-grocery\_and\_pharmacy\_percent\_change\_from\_baseline  & Grocery and pharmacy movement trends.             \\
-parks\_percent\_change\_from\_baseline                   & Parks movement trends.                           \\
-transit\_stations\_percent\_change\_from\_baseline       & Transit stations movement trends.                \\
-workplaces\_percent\_change\_from\_baseline              & Workplaces movement trends.                      \\
-residential\_percent\_change\_from\_baseline             & Retail and recreation movement trends.          \\\bottomrule
+\bf Source                         		         & \bf Overview                                                                              \\\midrule
+Johns Hopkins University          	         & New COVID cases and COVID-related deaths \\
+  & (global time series summary)                                                              \\
+Google Community Mobility Reports      & Change in traffic compared to a baseline day \\
+  & (median value over period from Jan 3 to Feb 6, 2020) 			\\
+World Data Indicators 		         & Economic indicators (growth, GDP) \\
+Government Measures		         & ACAPS Government Measures Dataset \\\bottomrule
+\end{tabular}
+\end{table}
+\marginnote{\scriptsize\rd Table 1 is OK, but with the expanded version of Table 2 I'm suggesting, it may no longer
+  be necessary. In any case, put the citations into the table as well.}
+
+\begin{table}[h!]
+  \caption{Summary of variables used in GVAR model}
+  \label{tab:variables}
+  \footnotesize
+  \centering
+  \begin{tabular}{l l l l l}\toprule
+    \textbf{Category} &  \textbf{Variable} & \textbf{Description}  & \textbf{Type} &  \textbf{Source}\\\midrule
+    \multirow{8}{.8in}{Endogenous}
+  & case     & infections            & \multirow{2}{1in}{Daily COVID-19 counts} & \multirow{2}{1in}{JHU citation}  \\
+  & mort     & deaths                &  & \\\cmidrule{2-5}
+  & groc     & grocery and pharmacy  & \multirow{6}{1in}{Activity (percent change from baseline)} &   \multirow{2}{1in}{Google citation}  \\
+  & park     & parks                 & & \\
+  & tran     & transit stations      & &  \\
+  & work     & workplaces            & &  \\
+  & home     & residential           & &           \\
+  & reta     & retail and recreation & &           \\\midrule
+\multirow{8}{.8in}{Exogenous}
+  & ph       & Public Health         & \multirow{6}{1in}{Government measures (dummy variables)} & \multirow{2}{1in}{citation} \\
+  & se       & Socio-economic        & \\
+  & sd       & Social Distancing     & \\
+  & mr	     & Movement Restrictions & \\
+  & ld       & Lockdown              & \\	
+  & he       & Humanitarian Exemption  & \\  \midrule
+\multirow{7}{.8in}{Deterministic}
+  & popn	     & Population                & \multirow{6}{1in}{Demography} & \multirow{7}{1in}{citation}\\   
+  & grow     & Growth \hl{Period?}			 & &\\
+  & pden     & Population Density        &&	\\
+  & upop     & Urban Population		      && \\
+  & ypop     & Population (Ages 0 to 14)      &&  \\
+  & wpop     & Working population (Ages 15-64)&& \\\cmidrule{2-5}
+  & gdpc     & GDP per capita \hl{Units?}   & Economic & \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
+\marginnote{\scriptsize\rd When it's not immediately obvious, include units in the description of each variable (Table
+  2)}
 
+\subsection{Data aggregation}
+Four of the data sets had to be aggregated in order to standardize the GVAR model inputs.
 
-
- 
+Four of the data sets had to be aggregated in order to standardize the GVAR model
+inputs. The new cases and death statistics follow the same format as they both originate from JHU. Since countries are broken down into subregions, we first sum up province data into a country total by
+checking each row if the ’province/state’ field is NA. If that is not the case, we add
+all rows for the entire series. We standardize the set of countries used in each data set through a list of unique country codes. Additionally, we retain a subset of the original Google data containing national-level statistics. We adopt a uniform naming convention to streamline the use of variables across our processing scripts as described in \autoref{tab:variables}. Finally, government interventions are combined by country – from February 15 to August 31. The outcome of the data aggregation effort is an integrated dataset which is publicly available on GitHub. \footnote{\url{https://github.com/narslab/covid-analysis/tree/master/mobility}}
 
 %\href{https://github.com/narslab/live-dashboard}{Dashboard}
 %\url{https://github.com/narslab/live-dashboard}
 
-\section{Methods}
-First, we investigate patterns across the activity and mobility variables by clustering the countries across these nine dimensions.
-We use dynamic time warping and hierarchical agglomerative clustering to obtain the clusters.
-These yield preliminary insights into the trends at the country level.
-Finally, we intend to estimate vector autoregression models at the country and at the cluster level in order to quantify how changes in activity and mobility trends influence COVID-19 outcomes. 
-In particular, we expect results as well on interdependencies between the mobility and activity variables.
 
+% The dynamic time warping (DTW) algorithm \cite{giorgino2009computing} computes the optimal distance between pairwise time series.
+% Any hierarchical clustering procedure requires a dissimilarity matrix as an input, which DTW provides.
+% First, we compute the Euclidean distance matrix for each country across the dimensions of the endogenous variables.
+% Second, we apply DTW to find the optimal matching between the countries based on their pairwise distance matrices across the dimensions observed.
+% The symmetric dissimilarity matrix is then used an input to the clustering algorithm.
 
-\subsection{Dynamic time warping and clustering}
-\hl{Not sure if we need to perform any exploratory analysis in this manuscript, but these methods might be useful either initially or in analyzing model results}
-The dynamic time warping (DTW) algorithm \cite{giorgino2009computing} computes the optimal distance between pairwise time series.
-Any hierarchical clustering procedure requires a dissimilarity matrix as an input, which DTW provides.
-First, we compute the Euclidean distance matrix for each country across the dimensions of the endogenous variables.
-Second, we apply DTW to find the optimal matching between the countries based on their pairwise distance matrices across the dimensions observed.
-The symmetric dissimilarity matrix is then used an input to the clustering algorithm.
-
-We use the Ward method \cite{murtagh2014ward}, which is a hierarchical agglomerative clustering (HAC) approach, to group the countries.
-The dendogram is shown in \autoref{fig:dend}.
+% We use the Ward method \cite{murtagh2014ward}, which is a hierarchical agglomerative clustering (HAC) approach, to group the countries.
+% The dendogram is shown in \autoref{fig:dend}.
 
 \subsection{Dimensionality reduction of deterministic variables}
 Perhaps PCA or EFA.

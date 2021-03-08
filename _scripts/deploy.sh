@@ -1,6 +1,6 @@
 URL=https://github.com/narslab/narslab.github.io.git
 BRANCH=gh-pages
-BRANCH_FROM=master
+BRANCH_FROM=main
 DEPLOY_CONFIG=
 BUNDLE=
 DRAFTS=
