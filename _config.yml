@@ -58,6 +58,9 @@ exclude:
   - "projects/covid-analysis/da*"
   - "projects/covid-analysis/c*"
   - "projects/covid-analysis/mobility/*"
+  - "projects/tree-risk-ai/figures/*"
+  - "projects/tree-risk-ai/data/*"
+  - "projects/tree-risk-ai/results/*"
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
@@ -66,6 +69,9 @@ projects:
   - narslab/covid-analysis
   - narslab/tree-risk-ai
   - narslab/pvta-odx
+  - narslab/treem
+  - narslab/equi-resnet
+  - narslab/water-accessibility
 
 # Exclude from processing.
 # The following items will not be processed, by default.
