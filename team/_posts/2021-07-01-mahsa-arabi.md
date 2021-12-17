@@ -7,7 +7,7 @@ github: maharabi
 twitter:
 scholar:
 image: /images/team/mahsa-arabi.jpg
-cv: /pdfs/team/mahsa-arabi-cv.pdf
+cv:  
 ---
 
 Mahsa is a PHD student in transportation engineering who joined NARS Lab in July 2021. She has bachelor's and master's degrees in industrial engineering and more than 6 years work experience in Iran Railways Company. 

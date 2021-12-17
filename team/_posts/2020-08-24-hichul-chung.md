@@ -8,6 +8,7 @@ twitter:
 scholar:   
 image: /images/team/hichul-chung.jpg
 cv:
+alumni: true
 ---
 
 Hichul Chung is currently a senior at the University of Massachusetts Amherst studying Mechanical Engineering. He is anticipated to graduate in May of 2021 with a bachelor's degree in Mechanical Engineering.
