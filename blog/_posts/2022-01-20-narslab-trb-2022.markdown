@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Transportation Research Board Annual Meeting 2022!"
+date:   2022-01-20 12:27:54 -0400
+categories: conference report
+---
+TRB 2022 was held in person this year, in spite of the Omicron spike. Our five current members attended: Jimi, Mahsa, Mohammed, Nasko and Zhuo. Mohammed presented a poster on our [PVTA-ODX](https://narslab.org/projects/pvta-odx/) work titled, "Trip pattern typologies in the Pioneer Valley Bus Transit System," while Zhuo presented our work on the [TREEM](https://narslab.org/projects/treem/) project a the poster titled, "Modeling system-wide urban rail transit energy consumption: A case study of Boston."
+
+
+[![zhuo-poster](/images/blog/narslab-trb-2022-zhuo-poster.jpg){: width="500" }](/images/blog/narslab-trb-2022-zhuo-poster.jpg)*<center>Team members at Zhuo's poster presentation. L-R: Mahsa, Nasko, Zhuo, Mohammed.</center>*
+
+[![team](/images/blog/narslab-trb-2022.jpg){: width="500" }](/images/blog/narslab-trb-2022.jpg)*<center>Entire team at Convention Center. L-R: Mahsa, Nasko, Mohammed, Zhuo, Jimi.</center>*
+
+[![mohammed-poster](/images/blog/narslab-trb-2022-mohammed-poster.jpg){: width="500" }](/images/blog/narslab-trb-2022-mohammed-poster.jpg)*<center> Mohammed presenting his work to a conference participant.</center>*
