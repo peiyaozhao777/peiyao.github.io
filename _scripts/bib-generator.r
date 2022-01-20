@@ -10,12 +10,14 @@ dois <- c("10.1103/PhysRevLett.104.070402",
           "10.1016/j.jth.2015.08.006",
           "10.1007/s10479-016-2358-2",
           "10.1007/s11067-018-9387-0",
-          "10.1016/j.cor.2015.02.010"
+          "10.1016/j.cor.2015.02.010",
+          "10.1016/j.tra.2021.09.013",
+          "10.1038/s41598-021-01522-w"
           )
 for(ii in 1:length(dois)) {
 
   ## get doi reference with rcrossref:
-  ref_md <- cr_cn(dois = dois[ii], format = "citeproc-json")
+  ref_md <- cr_cn(dois = dois[ii])#, format = "citeproc-json")
   ref_md <- as.yaml(ref_md)
   ref_md <- unlist(strsplit(ref_md, "\n"))
 
@@ -78,7 +80,7 @@ for(ii in 1:length(dois)) {
   ref_name <- gsub("/", "_", gsub("'", "", gsub(" ", "_", paste(gsub("^title: ", "", grep("^title: ", ref_hugo_md, value = TRUE)[1])))))
 
   if (!file.exists(paste0("../papers/_posts/", ref_name, ".md"))) {
-    write.table(ref_hugo_md, file = paste0("./content/publications/", ref_name, ".md"),
+    write.table(ref_hugo_md, file = paste0(ref_name, ".md"), #"./content/publications/",
                 quote = FALSE, row.names = FALSE, col.names = FALSE)
     print(paste(ii, ":", dois[ii], "---", ref_name))
   }
