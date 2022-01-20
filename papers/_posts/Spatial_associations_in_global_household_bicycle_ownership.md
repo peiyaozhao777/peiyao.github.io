@@ -21,10 +21,10 @@ citation: <em>Annals of Operations Research</em>, 263(1-2):529-549
 indexed:
   date-parts:
   - 2021
-  - 5
-  - 8
-  date-time: '2021-05-08T12:54:53Z'
-  timestamp: 1.6204785e+12
+  - 12
+  - 21
+  date-time: '2021-12-21T22:35:41Z'
+  timestamp: 1.6401261e+12
 reference-count: 44
 publisher: Springer Science and Business Media LLC
 issue: 1-2

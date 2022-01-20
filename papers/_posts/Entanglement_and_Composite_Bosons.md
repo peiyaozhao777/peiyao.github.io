@@ -13,11 +13,11 @@ date: 2010-02-18
 citation: <em>Physical Review Letters</em>, 104(7)
 indexed:
   date-parts:
-  - 2021
-  - 12
-  - 16
-  date-time: '2021-12-16T15:55:47Z'
-  timestamp: 1.6396701e+12
+  - 2022
+  - 1
+  - 15
+  date-time: '2022-01-15T05:34:35Z'
+  timestamp: 1.6422249e+12
 reference-count: 12
 publisher: American Physical Society (APS)
 issue: '7'
@@ -44,7 +44,7 @@ created:
   date-time: '2010-02-18T17:19:54Z'
   timestamp: 1.2665136e+12
 source: Crossref
-is-referenced-by-count: 38
+is-referenced-by-count: 40
 title-spread: Entanglement and Composite Bosons
 prefix: '10.1103'
 volume: '104'

@@ -16,11 +16,11 @@ date: 2020-04-23
 citation: <em>Transportation</em>, 48(4):1613-1638
 indexed:
   date-parts:
-  - 2021
-  - 12
-  - 17
-  date-time: '2021-12-17T19:08:27Z'
-  timestamp: 1.6397681e+12
+  - 2022
+  - 1
+  - 13
+  date-time: '2022-01-13T14:07:09Z'
+  timestamp: 1.6420828e+12
 reference-count: 37
 publisher: Springer Science and Business Media LLC
 issue: '4'
@@ -66,7 +66,7 @@ created:
 page: 1613-1638
 update-policy: http://dx.doi.org/10.1007/springer_crossmark_policy
 source: Crossref
-is-referenced-by-count: 2
+is-referenced-by-count: 4
 title-spread: 'Evaluating the impacts of shared automated mobility on-demand services: an
   activity-based accessibility approach'
 prefix: '10.1007'

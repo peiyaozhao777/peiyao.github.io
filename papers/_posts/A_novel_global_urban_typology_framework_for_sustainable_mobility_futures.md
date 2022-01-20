@@ -29,11 +29,11 @@ date: 2019-09-03
 citation: <em>Environmental Research Letters</em>, 14(9):095006
 indexed:
   date-parts:
-  - 2021
-  - 12
-  - 16
-  date-time: '2021-12-16T02:27:18Z'
-  timestamp: 1.6396216e+12
+  - 2022
+  - 1
+  - 8
+  date-time: '2022-01-08T14:07:59Z'
+  timestamp: 1.6416509e+12
 reference-count: 59
 publisher: IOP Publishing
 issue: '9'
@@ -83,7 +83,7 @@ created:
 page: 095006
 update-policy: http://dx.doi.org/10.1088/crossmark-policy
 source: Crossref
-is-referenced-by-count: 11
+is-referenced-by-count: 12
 title-spread: A novel global urban typology framework for sustainable mobility futures
 prefix: '10.1088'
 volume: '14'
