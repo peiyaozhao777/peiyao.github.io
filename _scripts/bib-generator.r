@@ -32,7 +32,7 @@ for(ii in 1:length(dois)) {
   title <- str_extract(grep("title =", ref_md, value = TRUE), "\\{(.*)\\}")
   title <- gsub("\\{|\\}", "", title)
   title_list <- unlist(strsplit(title, " "))
-  ref_title <- paste0("title: ", title)
+  ref_title <- paste0("title: ", "\"", title, "\"")
   
   # date
   year <- gsub(",", "", unlist(strsplit(grep("year =", ref_md, value = TRUE), " "))[3])
@@ -58,7 +58,9 @@ for(ii in 1:length(dois)) {
   }
   journal <- str_extract(grep("journal =", ref_md, value = TRUE), "\\{(.*)\\}")
   journal <- gsub("\\{|\\}", "", journal)
-  ref_ref = paste0("ref: ", cit, " ", year, ". ", journal)
+  journal <- gsub("\\&", "and", journal)
+  short_journal <- unlist(strsplit(journal, ":"))[1]
+  ref_ref = paste0("ref: ", cit, " ", year, ". ", short_journal)
   
   # citation: journal/volume/number/pages
   volume <- gsub("\\{|\\}", "", str_extract(grep("volume =", ref_md, value = TRUE), "\\{(.*)\\}"))
@@ -75,8 +77,9 @@ for(ii in 1:length(dois)) {
   if (length(pages) != 0) {
     vol_num_pages = paste0(vol_num_pages, ":", pages)
   }
-  ref_journal <- paste0("journal: ", journal, " ", vol_num_pages, ".")
+  ref_journal <- paste0("journal: ", "\"", journal, " ", vol_num_pages, ".\"")
  
+  # volume field
   ref_volume <- paste0("volume: ", volume)
   
   # doi
@@ -89,8 +92,9 @@ for(ii in 1:length(dois)) {
   
   # abstract
   get_abstract <- function(doi) {
-    abstract = tryCatch({
-      cr_abstract(doi)
+    tryCatch({
+      abstract <- cr_abstract(doi)
+      return(abstract)
       message("Successfully extracted abstract")
     },
     error = function(e) {
@@ -101,7 +105,6 @@ for(ii in 1:length(dois)) {
     finally = {
       message("Contents of reference markdown completed")
     })
-    return(abstract)
   }
   
   abstract <- get_abstract(dois[ii])
@@ -120,7 +123,7 @@ for(ii in 1:length(dois)) {
       month <- paste0("0", month)
     }
   } else {
-    month = "00"
+    month = "01"
   }
   
   day <- gsub("\\{|\\}", "", str_extract(grep("day =", ref_md, value = TRUE), "\\{(.*)\\}"))
@@ -129,7 +132,7 @@ for(ii in 1:length(dois)) {
       day = paste0("0", day)
     }
   } else {
-    day = "00"
+    day = "01"
   }
   
   stopwords <- c("in", "for", "and", "a", "an", "the", "of", "on", "this", "to", "who", "whom", "whose", "why", "how", "where", "is", "my", "from")
