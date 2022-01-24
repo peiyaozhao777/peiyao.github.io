@@ -3,17 +3,19 @@ library("yaml")
 library("anytime")
 library(stringr)
 setwd("../papers/_posts/")
-dois <- c("10.1103/PhysRevLett.104.070402",
-          # "10.1093/jamia/ocaa033",
-          # "10.1177/0361198119853553",
-          # "10.1007/s11116-020-10106-y",
-          # "10.1088/1748-9326/ab22c7",
-          # "10.1016/j.jth.2015.08.006",
-          # "10.1007/s10479-016-2358-2",
-          # "10.1007/s11067-018-9387-0",
-          # "10.1016/j.cor.2015.02.010",
-          # "10.1016/j.tra.2021.09.013",
-          "10.1038/s41598-021-01522-w"
+dois <- c(
+          "10.1103/PhysRevLett.104.070402",
+          "10.1093/jamia/ocaa033",
+          "10.1177/0361198119853553",
+          "10.1007/s11116-020-10106-y",
+          "10.1088/1748-9326/ab22c7",
+          "10.1016/j.jth.2015.08.006",
+          "10.1007/s10479-016-2358-2",
+          "10.1007/s11067-018-9387-0",
+          "10.1016/j.cor.2015.02.010",
+          "10.1016/j.tra.2021.09.013",
+          "10.1038/s41598-021-01522-w",
+          "10.1016/j.tra.2020.06.013"
           )
 for(ii in 1:length(dois)) {
 
@@ -24,18 +26,17 @@ for(ii in 1:length(dois)) {
 
   
   # layout  
-  ref_layout <- "paper"
+  ref_layout <- "layout: paper"
   
   # title
-  ref_title <- str_extract(grep("title =", ref_md, value = TRUE), "\\{(.*)\\}")
-  ref_title <- gsub("\\{|\\}", "", ref_title)
-  title_list <- unlist(strsplit(ref_title, " "))
-  ref_title <- paste0("title: ", ref_title)
+  title <- str_extract(grep("title =", ref_md, value = TRUE), "\\{(.*)\\}")
+  title <- gsub("\\{|\\}", "", title)
+  title_list <- unlist(strsplit(title, " "))
+  ref_title <- paste0("title: ", title)
   
   # date
-  ref_year <- str_extract(grep("year =", ref_md, value = TRUE), "\\{(.*)\\}")
-  ref_year <- gsub("\\{|\\}", "", ref_year)
-  ref_year <- paste0("date: ", ref_year)
+  year <- gsub(",", "", unlist(strsplit(grep("year =", ref_md, value = TRUE), " "))[3])
+  ref_year <- paste0("year: ", year)
 
 
   # authors 
@@ -43,87 +44,107 @@ for(ii in 1:length(dois)) {
   authors <- gsub("\\{|\\}", "", authors)
   authors <- gsub(" and", ",", authors)
   author_list <- unlist(strsplit(authors, ","))
-  authors <- paste0("authors: ", authors)
+  ref_authors <- paste0("authors: ", authors)
   
   # reference
-  first_author_lastname <- unlist(strsplit(author_list[1], " "))[2]
+  first_author_lastname <- tail(unlist(strsplit(author_list[1], " ")), n=1)
   if (length(author_list) > 2) {
-    ref_ref = paste0(first_author_lastname, " et al.")
+    cit = paste0(first_author_lastname, " et al.")
   } else if (length(author_list) == 2) {
-    second_author_lastname <- unlist(strsplit(author_list[2], " "))[2]
-    ref_ref = paste0(first_author_lastname, " and ", second_author_lastname)
+    second_author_lastname <- tail(unlist(strsplit(author_list[2], " "))[2], n=1)
+    cit = paste0(first_author_lastname, " and ", second_author_lastname)
   } else {
-    ref_ref = first_author_lastname
+    cit = first_author_lastname
   }
-  ref_journal <- str_extract(grep("journal =", ref_md, value = TRUE), "\\{(.*)\\}")
-  ref_journal <- gsub("\\{|\\}", "", ref_journal)
-  ref_ref = paste0(ref_ref, " ", ref_year, ". ", ref_journal)
+  journal <- str_extract(grep("journal =", ref_md, value = TRUE), "\\{(.*)\\}")
+  journal <- gsub("\\{|\\}", "", journal)
+  ref_ref = paste0("ref: ", cit, " ", year, ". ", journal)
   
   # citation: journal/volume/number/pages
-  ref_volume <- gsub("\\{|\\}", "", str_extract(grep("volume =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  ref_number <- gsub("\\{|\\}", "", str_extract(grep("number =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  volume <- gsub("\\{|\\}", "", str_extract(grep("volume =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  number <- gsub("\\{|\\}", "", str_extract(grep("number =", ref_md, value = TRUE), "\\{(.*)\\}"))
   
-  ref_pages <- gsub("\\{|\\}", "", str_extract(grep("pages =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  ref_pages <- gsub("--", "-", ref_pages)
+  pages <- gsub("\\{|\\}", "", str_extract(grep("pages =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  pages <- gsub("--", "-", pages)
   
-  if (length(ref_number) != 0) {
-    vol_num_pages = paste0(ref_volume, "(", ref_number, ")")
+  if (length(number) != 0) {
+    vol_num_pages = paste0(volume, "(", number, ")")
   } else {
-    vol_num_pages = ref_volume
+    vol_num_pages = volume
   }
-  if (length(ref_pages) != 0) {
-    vol_num_pages = paste0(vol_num_pages, ":", ref_pages)
+  if (length(pages) != 0) {
+    vol_num_pages = paste0(vol_num_pages, ":", pages)
   }
-  ref_cit <- paste0("journal: ", ref_journal, " ", vol_num_pages, ".")
+  ref_journal <- paste0("journal: ", journal, " ", vol_num_pages, ".")
  
+  ref_volume <- paste0("volume: ", volume)
   
   # doi
   doi <- str_extract(grep("doi =", ref_md, value = TRUE), "\\{(.*)\\}")
   doi <- gsub("\\{|\\}", "", doi)
-  doi <- paste0("doi: ", doi)
+  ref_doi <- paste0("doi: ", doi)
+ 
+  ## make theme compliant *.md files from reference:
+  ref_theme_md <- c(ref_layout, ref_title, ref_authors, ref_year, ref_ref, ref_journal, ref_volume, "pdf:", ref_doi, "github:")
   
   # abstract
-  ref_abstract <- cr_abstract(doi = dois[ii])
-  ref_abstract <- gsub("Abstract", "", ref_abstract, fixed=TRUE)
+  get_abstract <- function(doi) {
+    abstract = tryCatch({
+      cr_abstract(doi)
+      message("Successfully extracted abstract")
+    },
+    error = function(e) {
+      message("Abstract not found. Original error message:")
+      message(paste(e))
+      return(character(0))
+    },
+    finally = {
+      message("Contents of reference markdown completed")
+    })
+    return(abstract)
+  }
   
-  ## make hugo-finite theme compliant *.md files from reference:
-  ref_hugo_md <- c(ref_layout, ref_title, authors, ref_year, ref_ref, ref_cit, ref_volume, doi)
-  if (length(ref_abstract) > 0) {
-    ref_hugo_md <- c("---", ref_hugo_md, "---", "# Abstract", ref_abstract )  
+  abstract <- get_abstract(dois[ii])
+  if (length(abstract) > 0) {
+    abstract <- gsub("Abstract", "", abstract, fixed = TRUE)
+    ref_theme_md <- c("---", ref_theme_md, "---", "# Abstract", abstract)
   } else {
-    ref_hugo_md <- c("---", ref_hugo_md, "---")  
+    ref_theme_md <- c("---", ref_theme_md, "---") 
   }
   
   ## format filename
-  ref_month <- gsub("\\{|\\}", "", str_extract(grep("month =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  if (length(ref_month) > 0 ) {
-    ref_month <- str_which(ref_month, fixed(month.abb, ignore_case = TRUE))
-    if (ref_month < 10) {
-      ref_month <- paste0("0", ref_month)
+  month <- gsub("\\{|\\}", "", str_extract(grep("month =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  if (length(month) > 0 ) {
+    month <- str_which(month, fixed(month.abb, ignore_case = TRUE))
+    if (month < 10) {
+      month <- paste0("0", month)
     }
   } else {
-    ref_month = "00"
+    month = "00"
   }
   
-  ref_day <- gsub("\\{|\\}", "", str_extract(grep("month =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  if (length(ref_day) > 0 ) {
-    if (length(ref_day) < 10 ) {
-      ref_day = paste0("0", ref_day)
+  day <- gsub("\\{|\\}", "", str_extract(grep("day =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  if (length(day) > 0 ) {
+    if (length(day) < 10 ) {
+      day = paste0("0", day)
     }
   } else {
-    ref_day = "00"
+    day = "00"
   }
   
-  stopwords <- c("in", "for", "and", "a", "an", "the", "of", "on", "this")
+  stopwords <- c("in", "for", "and", "a", "an", "the", "of", "on", "this", "to", "who", "whom", "whose", "why", "how", "where", "is", "my", "from")
+  title_list <- tolower(title_list)
   title_list <- title_list[!title_list %in% stopwords]
   title_list <- title_list[1:3]
-  title_list <- paste(title_list, collapse = " ")
+  title_list <- gsub("[[:punct:]]", "", title_list) # remove punctuation marks
+  title_list <- paste(title_list, collapse = "-")
   
-  ref_filename = tolower(paste0(ref_year, ref_month, ref_day, first_author_lastname, sep = "-"))
-  if (!file.exists(paste0("../papers/_posts/", ref_filename, ".md"))) {
-    write.table(ref_hugo_md, file = paste0(ref_filename, ".md"), #"./content/publications/",
+  
+  filename = tolower(paste(year, month, day, first_author_lastname, title_list, sep = "-"))
+  if (!file.exists(paste0("../papers/_posts/", filename, ".md"))) {
+    write.table(ref_theme_md, file = paste0(filename, ".md"), #"./content/publications/",
                 quote = FALSE, row.names = FALSE, col.names = FALSE)
-    print(paste(ii, ":", dois[ii], "---", ref_filename))
+    print(paste(ii, ":", dois[ii], "---", filename))
   }
 
 }
