@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Mohammed Mohammed
-position: Masters Student
+position: PhD Student
 handle:
 github: ma-mohammed
 twitter:
