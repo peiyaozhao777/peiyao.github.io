@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Vivian Rost-Nasshan
-position: Undergraduate Student
+position: Undergraduate Student (REU)
 handle:
 github:
 twitter:
