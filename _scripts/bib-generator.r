@@ -3,20 +3,24 @@ library("yaml")
 library("anytime")
 library(stringr)
 setwd("../papers/_posts/")
-dois <- c(
-          "10.1103/PhysRevLett.104.070402",
-          "10.1093/jamia/ocaa033",
-          "10.1177/0361198119853553",
-          "10.1007/s11116-020-10106-y",
-          "10.1088/1748-9326/ab22c7",
-          "10.1016/j.jth.2015.08.006",
-          "10.1007/s10479-016-2358-2",
-          "10.1007/s11067-018-9387-0",
-          "10.1016/j.cor.2015.02.010",
-          "10.1016/j.tra.2021.09.013",
-          "10.1038/s41598-021-01522-w",
-          "10.1016/j.tra.2020.06.013"
-          )
+# dois <- c(
+#           "10.1103/PhysRevLett.104.070402",
+#           "10.1093/jamia/ocaa033",
+#           "10.1177/0361198119853553",
+#           "10.1007/s11116-020-10106-y",
+#           "10.1088/1748-9326/ab22c7",
+#           "10.1016/j.jth.2015.08.006",
+#           "10.1007/s10479-016-2358-2",
+#           "10.1007/s11067-018-9387-0",
+#           "10.1016/j.cor.2015.02.010",
+#           "10.1016/j.tra.2021.09.013",
+#           "10.1038/s41598-021-01522-w",
+#           "10.1016/j.tra.2020.06.013"
+#           )
+
+df = read.csv("../../docs/papers/Publications.csv")
+dois = df$DOI
+
 for(ii in 1:length(dois)) {
 
   ## get doi reference with rcrossref:
@@ -58,7 +62,11 @@ for(ii in 1:length(dois)) {
   }
   journal <- str_extract(grep("journal =", ref_md, value = TRUE), "\\{(.*)\\}")
   journal <- gsub("\\{|\\}", "", journal)
-  journal <- gsub("\\&", "and", journal)
+  #journal <- gsub("\\&", "and", journal)
+  journal = gsub("\\$", "", journal)
+  journal = gsub("\\&", "", journal)
+  journal = gsub("\\\\", "", journal)
+  journal = gsub("ampmathsemicolon", "and", journal)
   short_journal <- unlist(strsplit(journal, ":"))[1]
   ref_ref = paste0("ref: ", cit, " ", year, ". ", short_journal)
   
@@ -107,7 +115,9 @@ for(ii in 1:length(dois)) {
     })
   }
   
-  abstract <- get_abstract(dois[ii])
+  #abstract <- get_abstract(dois[ii])
+  abstract <- df[ii, "Abstract.Note"] #jo
+   
   if (length(abstract) > 0) {
     abstract <- gsub("Abstract", "", abstract, fixed = TRUE)
     ref_theme_md <- c("---", ref_theme_md, "---", "# Abstract", abstract)
