@@ -1,0 +1,230 @@
+\documentclass[11pt,twoside]{article}
+\def\@LN#1#2{{\expandafter\@@LN
+                 \csname LN@P#2C\@LN@column\expandafter\endcsname
+                 \csname LN@PO#2\endcsname
+                 {#1}{#2}}}
+                 \makeatletter
+\providecommand{\@LN}[2]{}
+\makeatother
+%\usepackage{etex}
+\raggedbottom
+
+%geometry (sets margin) and other useful packages
+\usepackage{geometry}
+\geometry{top=1in, left=1in,right=1in,bottom=1in}
+ \usepackage{graphicx,booktabs,calc}
+ \usepackage{wrapfig}
+%=== GRAPHICS PATH ===========
+%\graphicspath{{./140408-Images/}}
+% Marginpar width
+%Marginpar width
+\newcommand{\pts}[1]{\marginpar{ \small\hspace{0pt} \textit{[#1]} } }
+\setlength{\marginparwidth}{.5in}
+%\reversemarginpar
+%\setlength{\marginparsep}{.02in}
+%% Fonts
+%\usepackage{fourier}
+%\usepackage[T1]{pbsi}
+%\usepackage{showframe}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage{minted}
+
+\usepackage{rotating, soul}
+\usepackage[sort,numbers]{natbib}
+
+%% Cite Title
+% \usepackage[style=numeric,backend=biber,sorting=none,natbib,maxbibnames=99,
+%   maxcitenames=2,doi=false,isbn=false,url=false,eprint=false,uniquename=false]{biblatex}
+% \addbibresource{../TREEM_1.bib}
+
+%%% Counters
+\usepackage{chngcntr,mathtools}
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+
+\numberwithin{equation}{section}
+
+
+%\hypersetup{breaklinks=true}
+
+%% Captions
+\usepackage{caption}
+\captionsetup{
+  labelsep=quad,
+  justification=raggedright,
+  labelfont=sc
+}
+
+%AMS-TeX packages
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{bm}
+\usepackage[mathscr]{eucal}
+\usepackage{colortbl}
+\usepackage{color}
+
+
+\usepackage{epstopdf,subfigure,hyperref,enumerate}
+\usepackage{multirow,minitoc,fancybox,array,multicol}
+
+\definecolor{slblue}{rgb}{0,.3,.62}
+\hypersetup{
+    colorlinks,%
+    citecolor=blue,%
+    filecolor=blue,%
+    linkcolor=blue,
+    urlcolor=slblue,
+    breaklinks=true
+}
+
+%%%TIKZ
+\usepackage{tikz}
+\usepackage{tikz-network}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{pgfgantt}
+\pgfplotsset{compat=newest}
+
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shadows,automata}
+\usetikzlibrary{patterns}
+%\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{decorations.text}
+% For Sagnac Picture
+\usetikzlibrary{%
+    decorations.pathreplacing,%
+    decorations.pathmorphing%
+}
+
+
+
+%
+%Fancy-header package to modify header/page numbering
+%
+%\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\addtolength{\headwidth}{\marginparsep} %these change header-rule width
+%\addtolength{\headwidth}{\marginparwidth}
+%\fancyheadoffset{30pt}
+%\fancyfootoffset{30pt}
+%\fancyhead[LO,RE]{\small  \it \nouppercase{\leftmark}}
+%\fancyhead[RO,LE]{\small Page \thepage}
+%\fancyfoot[RO,LE]{\small }% PR \num S-2015}
+%\fancyfoot[LO,RE]{\small }%\scshape MODL}
+%\cfoot{}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0pt}
+%\setlength\voffset{-0.25in}
+%\setlength\textheight{648pt}
+
+
+\usepackage{paralist}
+
+
+%%% FORMAT PYTHON CODE
+\usepackage{listings}
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{8} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{8}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+
+\newcommand{\osn}{\oldstylenums}
+\newcommand{\dg}{^{\circ}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\pt}{\phantom}
+\newcommand{\tf}{\therefore}
+\newcommand{\?}{\stackrel{?}{=}}
+\newcommand{\fr}{\frac}
+\newcommand{\dfr}{\dfrac}
+%\newcommand{\ul}{\underline}
+\newcommand{\tn}{\tabularnewline}
+\newcommand{\nl}{\newline}
+\newcommand\relph[1]{\mathrel{\phantom{#1}}}
+\newcommand{\cm}{\checkmark}
+\newcommand{\ol}{\overline}
+\newcommand{\rd}{\color{red}}
+\newcommand{\bl}{\color{blue}}
+\newcommand{\pl}{\color{purple}}
+\newcommand{\og}{\color{orange!90!black}}
+\newcommand{\gr}{\color{green!40!black}}
+\newcommand{\nin}{\noindent}
+\newcommand{\la}{\lambda}
+\renewcommand{\th}{\theta}
+\newcommand{\al}{\alpha}
+\newcommand{\G}{\Gamma}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,thick,inner sep=1pt] (char) {\small #1};}}
+
+\newcommand{\bc}{\begin{compactenum}[\quad--]}
+\newcommand{\ec}{\end{compactenum}}
+
+\newcommand{\p}{\partial}
+\newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\dpd}[2]{\dfrac{\partial{#1}}{\partial{#2}}}
+\newcommand{\pdd}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%\pagenumbering{gobble} 
+\begin{document}
+
+\title{Reviewer Responses: {\it Modeling system-wide urban rail transit energy consumption: A case study of Boston}}
+\author{Zhuo Han \and Eleni Christofa \and Eric Gonzales \and Jimi Oke}
+\date{\today}
+\maketitle
+
+%\tableofcontents
+
+\section*{Editor and Reviewer comments:}
+The paper was succinct, easy to follow and contributes to the current literature on energy consumption for rail transit.  Please see some minor comments received through this round of reviews for your consideration and incorporation into the manuscript.
+
+\begin{quote}
+\bl     We appreciate your consideration of our manuscript for publication in the Transportation Research Record. The reviewers' suggestions greatly improved the quality of the manuscript, and we are thrilled that our findings will contribute to current knowledge and practice for sustainable energy consumption in urban rail transit. Our responses to the minor comments are rendered in {\bl blue} (as in this paragraph). Direct quotations from the manuscript are typeset in {\gr green}.
+\end{quote}
+
+\section*{Reviewer 1}
+\begin{enumerate}[1)]
+\item Pg 5 Line 13: ``passengers" → "passenger"  
+\begin{quote}
+\bl
+Thank you for correction. We have revised accordingly. We quote below (p. 3): 
+\begin{quote}
+    \gr The ridership is sourced from farecard tap-in data that logs the location and time that
+each passenger enters the system.
+\end{quote}
+\end{quote}
+
+\item One question relating to the energy consumption in terms of traction would be, are the MBTA lines that are taken into account in the research comprised of manually driven trains, ATO/GoA-standard trains or a mix of both? Naturally, a computer-driven train would consume a predictable and consistent amount of energy as compared to a manually-driven one.
+\begin{quote}
+\bl Thanks for your comments on this.  The data for this research used observations from 2019-2020, during which the MBTA rapid transit fleet was manually driven.  We do not have data on the level of automation for new trains that are being purchased for the Red Line and Orange Line.  We agree that an ATO/GoA vehicle would likely have a more predictable energy profile, and this would be an important direction for future work.
+\end{quote}
+
+\item I also noted that the error was about 5\%, was there anything that you think could have been done to try to further cut this value?  
+\begin{quote}
+\bl
+Thank you for your question. Our model is based on operations data that is aggregated across the system and temperature conditions that are aggregated across the day, which likely contributes to this error. Possibly, the inclusion of further explanatory variables (such as precipitation, humidity, etc) and higher-resolution temperature could improve the performance of the model. More critically, line-specific movement variables could be crucial for better inference and prediction. We are currently investigating these threads and hope to publish our results in a subsequent paper.
+\end{quote}
+\end{enumerate}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

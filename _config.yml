@@ -67,11 +67,20 @@ exclude:
   - vendor/ruby/
 projects:
   - narslab/covid-analysis
-  - narslab/tree-risk-ai
-  - narslab/pvta-odx
-  - narslab/treem
+  - narslab/bus-transit-energy
   - narslab/equi-resnet
-  - narslab/water-accessibility
+  - narslab/mbta-rail-system-energy
+  - narslab/msa-emission-typologies
+  - narslab/project-groundwork
+  - narslab/pv-trips-energy
+  - narslab/pvta-odx  
+  - narslab/pvta-spatiotemporal-typologies
+  - narslab/tracking-msa-ghg
+  - narslab/tree-risk-ai
+  - narslab/treem
+  - narslab/treem-ml-line-energy
+  - narslab/treem-ts-energy-forecast
+  - narslab/vis-inference
 
 # Exclude from processing.
 # The following items will not be processed, by default.
