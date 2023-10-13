@@ -27,12 +27,15 @@ driveline_efficiency_d_dis: 0.94        # unitless
 alpha_0_cdb:                0.001733    # unitless
 alpha_1_cdb:                0.000119    # unitless
 alpha_2_cdb:                0.00000001  # unitless
+alpha_2:                0.00000001  # unitless
 frontal_area_cdb:           7.44         # m^2
 
 
 #Parameters specific to HEB
-alpha_0_heb:                 0.002972       # unitless
-alpha_1_heb:                 0.00001   # unitless
+#alpha_0_heb:                 0.002972       # unitless
+#alpha_1_heb:                 0.00001   # unitless
+alpha_0_heb:                 0.001321       # unitless
+alpha_1_heb:                 0.000089   # unitless
 alpha_2_heb:                 0.00000001  # unitless
 frontal_area_heb:            6.99        # m^2
 
