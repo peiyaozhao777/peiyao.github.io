@@ -18,7 +18,7 @@ setwd("../papers/_posts/")
 #           "10.1016/j.tra.2020.06.013"
 #           )
 
-df = read.csv("../../docs/papers/Publications.csv")
+df = read.csv("../../docs/Publications.csv")
 dois = df$DOI
 
 for(ii in 1:length(dois)) {

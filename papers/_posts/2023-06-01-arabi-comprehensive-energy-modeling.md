@@ -3,7 +3,7 @@ layout: paper
 title: "Comprehensive Energy Modeling Framework for Multi-Powertrain Bus Transit Systems"
 authors: Mahsa Arabi, Jimi Oke
 year: 2023
-ref: Arabi and Jimi 2023. Transportation Research Record
+ref: Arabi and Oke 2023. Transportation Research Record
 journal: "Transportation Research Record: Journal of the Transportation Research Board :036119812311725."
 volume: 
 pdf:

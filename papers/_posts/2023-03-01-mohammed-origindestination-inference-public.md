@@ -3,7 +3,7 @@ layout: paper
 title: "Origin-destination inference in public transportation systems: A comprehensive review"
 authors: Mohammed Mohammed, Jimi Oke
 year: 2023
-ref: Mohammed and Jimi 2023. International Journal of Transportation Science and Technology
+ref: Mohammed and Oke 2023. International Journal of Transportation Science and Technology
 journal: "International Journal of Transportation Science and Technology 12(1):315-328."
 volume: 12
 pdf:

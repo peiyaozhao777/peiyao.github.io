@@ -3,7 +3,7 @@ layout: paper
 title: "Extracting Spatiotemporal Bus Passenger Trip Typologies from Noisy Mobile Ticketing Boarding Data"
 authors: Mohammed Abdalazeem, Jimi Oke
 year: 2023
-ref: Abdalazeem and Jimi 2023. Data Science for Transportation
+ref: Abdalazeem and Oke 2023. Data Science for Transportation
 journal: "Data Science for Transportation 5(3)."
 volume: 5
 pdf:
