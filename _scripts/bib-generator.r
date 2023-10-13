@@ -55,7 +55,7 @@ for(ii in 1:length(dois)) {
   if (length(author_list) > 2) {
     cit = paste0(first_author_lastname, " et al.")
   } else if (length(author_list) == 2) {
-    second_author_lastname <- tail(unlist(strsplit(author_list[2], " "))[2], n=1)
+    second_author_lastname <- tail(unlist(strsplit(author_list[2], " "))[3], n=1)
     cit = paste0(first_author_lastname, " and ", second_author_lastname)
   } else {
     cit = first_author_lastname
