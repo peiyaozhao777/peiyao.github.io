@@ -7,6 +7,7 @@ ref: Chung et al. 2023. Environmental Research Letters
 journal: "Environmental Research Letters 18(2):025009."
 volume: 18
 pdf:
+image: /images/papers/dwat.jpg
 doi: 10.1088/1748-9326/acb662
 github:
 ---
