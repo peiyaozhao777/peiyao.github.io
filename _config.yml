@@ -65,7 +65,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-projects:
+repos:
   - narslab/covid-analysis
   - narslab/bus-transit-energy
   - narslab/equi-resnet

@@ -6,7 +6,7 @@
 #  - owner: trvrb
 #  - title: coaltrace
 #  - description: Simulating genealogies using charged particles
-#  - url: /projects/coaltrace/
+#  - url: /repos/coaltrace/
 #  - date: 2013-10-19 04:12:17 UTC
 #  - contributors:
 #      - login: trvrb
@@ -20,42 +20,42 @@
 require 'octokit'
 require 'yaml'
 
-module Projects
+module Repositories
 
 	def self.generate_data(config_file)
 
-		project_data = {}
+		repo_data = {}
 
 		config = YAML.load_file(config_file)
-		projects_array = config["projects"]
+		repos_array = config["repos"]
 
-		puts "Generating projects"
+		puts "Generating repos"
 		# create octokit client
 		client = Octokit::Client.new(:netrc => true, :access_token => ENV['GITHUB_TOKEN'])
 
-		project_data = Array.new
-		if projects_array.length > 0
-			projects_array.each do |repo|
+		repo_data = Array.new
+		if repos_array.length > 0
+			repos_array.each do |repo|
 
 				puts "\tGenerating #{repo}"
 
 				# load repo metadata
 				octokit_repo = client.repository(repo)
-				project_title = octokit_repo.name
-				project_owner = octokit_repo.owner.login
-				project_description = octokit_repo.description
-				project_url = "/projects/#{project_title}/"
-				project_date = octokit_repo.updated_at
+				repo_title = octokit_repo.name
+				repo_owner = octokit_repo.owner.login
+				repo_description = octokit_repo.description
+				repo_url = "/repos/#{repo_title}/"
+				repo_date = octokit_repo.updated_at
 
 				# load contributor metadata
 				octokit_contributors = client.contributors(repo)
-				project_contributors = Array.new
+				repo_contributors = Array.new
 				for i in 0 ... [octokit_contributors.size, 5].min
 					contributor = octokit_contributors[i]
 					contributor_login = contributor.login
 					contributor_avatar = contributor.rels[:avatar].href + "&s=50"
 					contributor_url = contributor.rels[:html].href
-					project_contributors = project_contributors.push(
+					repo_contributors = repo_contributors.push(
 						"login" => contributor_login,
 						"avatar" => contributor_avatar,
 						"url" => contributor_url
@@ -64,7 +64,7 @@ module Projects
 
 				# load commit metadata
 				octokit_commits = client.commits(repo)
-				project_commits = Array.new
+				repo_commits = Array.new
 				counter = 0
 				for i in 0 ... octokit_commits.size
 					commit = octokit_commits[i]
@@ -80,7 +80,7 @@ module Projects
 						commit_author_url = ""
 					end
 
-					project_commits = project_commits.push(
+					repo_commits = repo_commits.push(
 						"date" => commit_date,
 						"message" => commit_message,
 						"url" => commit_url,
@@ -95,34 +95,34 @@ module Projects
 				end
 
 				# assemble metadata
-				project_data = project_data.push(
+				repo_data = repo_data.push(
 					"repo" => repo,
-					"title" => project_title,
-					"owner" => project_owner,
-					"description" => project_description,
-					"url" => project_url,
-					"contributors" => project_contributors,
-					"commits" => project_commits
+					"title" => repo_title,
+					"owner" => repo_owner,
+					"description" => repo_description,
+					"url" => repo_url,
+					"contributors" => repo_contributors,
+					"commits" => repo_commits
 				)
 
 				# sort by date
-				project_data.sort! { |x, y| y["commits"].first["date"] <=> x["commits"].first["date"] }
+				repo_data.sort! { |x, y| y["commits"].first["date"] <=> x["commits"].first["date"] }
 
 			end
 		end
 
-		return project_data
+		return repo_data
 
 	end
 
-	def self.write_data(project_data, data_file)
+	def self.write_data(repo_data, data_file)
 
-		puts "Writing project data"
-		File.write(data_file, project_data.to_yaml)
+		puts "Writing repo data"
+		File.write(data_file, repo_data.to_yaml)
 
 	end
 
 end
 
-project_data = Projects.generate_data("_config.yml")
-Projects.write_data(project_data, "_data/projects.yml")
+repo_data = Repositories.generate_data("_config.yml")
+Repositories.write_data(repo_data, "_data/repos.yml")

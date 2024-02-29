@@ -7,13 +7,13 @@ name_to_repo = Hash.new
 require 'yaml'
 $basedir = Dir.pwd				
 config = YAML.load_file("_config.yml")
-config["projects"].each do |repo|
+config["repos"].each do |repo|
 	name = repo.split('/').drop(1).join('')	
 	name_to_repo[name] = repo
 end
 
 # collect all markdown files 
-mdarray = Dir.glob("projects/**/*.md")
+mdarray = Dir.glob("repos/**/*.md")
 
 # go through each markdown file
 mdarray.each { |md|
@@ -35,13 +35,13 @@ mdarray.each { |md|
 	# get project name if possible
 	project_name = nil
 	dirarray = full_directory.split('/')
-	temp_name = dirarray[dirarray.index("projects") + 1]
+	temp_name = dirarray[dirarray.index("repos") + 1]
 	if temp_name =~ /^[^_]/
 		project_name = temp_name
 	end
 
 	repo = name_to_repo[project_name]
-	within_project_directory = full_directory[/projects\/#{project_name}\/(.*)/, 1]
+	within_project_directory = full_directory[/repos\/#{project_name}\/(.*)/, 1]
 
 	# if file is lacking YAML front matter, add some
 	contents = File.open(md, "r").read	
@@ -50,7 +50,7 @@ mdarray.each { |md|
 		out.puts "---"
 		out.puts "layout: project"
 		if project_name != nil
-			title = md.sub(/^.*projects\//, '').sub(/.md$/, '').sub(/index$/, '')
+			title = md.sub(/^.*repos\//, '').sub(/.md$/, '').sub(/index$/, '')
 			out.puts "title: #{title}"		
 			out.puts "project: #{project_name}"
 			out.puts "repo: #{repo}"
