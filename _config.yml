@@ -69,13 +69,16 @@ exclude:
   - .jekyll-cache/
 
 readmes:
-  - narslab/tree-risk-ai
-  - narslab/equi-resnet
+  - narslab/mbta-rail-system-energy
+  - narslab/water-accessibility
+  - narslab/bus-transit-energy
+  - narslab/tracking-msa-ghg
+  - narslab/project-groundwork
 
 projects:
-  # - narslab/tree-risk-ai
+  - narslab/tree-risk-ai
   # - narslab/bus-transit-energy
-  # - narslab/equi-resnet
+  - narslab/equi-resnet
   # - narslab/mbta-rail-system-energy
   # - narslab/msa-emission-typologies
   # - narslab/project-groundwork
