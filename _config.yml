@@ -65,22 +65,27 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-repos:
-  - narslab/covid-analysis
-  - narslab/bus-transit-energy
-  - narslab/equi-resnet
-  - narslab/mbta-rail-system-energy
-  - narslab/msa-emission-typologies
-  - narslab/project-groundwork
-  - narslab/pv-trips-energy
-  - narslab/pvta-odx  
-  - narslab/pvta-spatiotemporal-typologies
-  - narslab/tracking-msa-ghg
+  - .sass-cache/
+  - .jekyll-cache/
+
+readmes:
   - narslab/tree-risk-ai
-  - narslab/treem
-  - narslab/treem-ml-line-energy
-  - narslab/treem-ts-energy-forecast
-  - narslab/vis-inference
+  - narslab/equi-resnet
+
+projects:
+  # - narslab/tree-risk-ai
+  # - narslab/bus-transit-energy
+  # - narslab/equi-resnet
+  # - narslab/mbta-rail-system-energy
+  # - narslab/msa-emission-typologies
+  # - narslab/project-groundwork
+  # - narslab/pv-trips-energy
+  # - narslab/pvta-odx  
+  # - narslab/pvta-spatiotemporal-typologies
+  # - narslab/tracking-msa-ghg
+  # - narslab/treem
+  # - narslab/treem-ml-line-energy
+  # - narslab/treem-ts-energy-forecast
 
 # Exclude from processing.
 # The following items will not be processed, by default.

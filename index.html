@@ -142,31 +142,31 @@ categories:
 <div class="row">
 	<div class="col-md-12">
 		<div class="head">
-			<a class="off" href="/repos/">Active repos</a>
+			<a class="off" href="/projects/">Active projects</a>
 		</div>
 		<div class="spacer"></div>
 	</div>
 </div>
 
 <div class="row">
-	{% for repo in site.data.repos limit:4 %}
+	{% for project in site.data.projects limit:4 %}
 	<div class="col-md-3 reduced-gutter">
 		<div class="pad-left">
 			<div class="note">
 				<i class="fa fa-edit fa-fw"></i>
-				<a class="off" href="{{ repo.url }}">
-				{{ repo.title }} - {{ repo.description }}
+				<a class="off" href="{{ project.url }}">
+				{{ project.title }} - {{ project.description }}
 				</a>
 			</div>
 			<div class="smallspacer"></div>
 			<div class="smallnote">
 				Updated
-				<a class="off" href="{{ repo.commits.first.url }}">
-				{{ repo.commits.first.date | date: "%-d %b %Y" }}
+				<a class="off" href="{{ project.commits.first.url }}">
+				{{ project.commits.first.date | date: "%-d %b %Y" }}
 				</a>
 				by
-				<a class="off" href="{{ repo.commits.first.author_url }}">
-				{{ repo.commits.first.author_login }}
+				<a class="off" href="{{ project.commits.first.author_url }}">
+				{{ project.commits.first.author_login }}
 				</a>
 			</div>
 			<div class="bigspacer"></div>

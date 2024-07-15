@@ -6,6 +6,7 @@ handle:
 github:
 twitter:
 scholar:
+alumni: true
 image: /images/team/vivian-rost-nasshan.jpg
 cv:  
 ---

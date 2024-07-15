@@ -6,6 +6,7 @@ handle: naskoap
 github: naskoap
 twitter:
 scholar:
+alumni: true
 image: /images/team/nasko-apostolov.jpg
 cv: /pdfs/team/nasko-apostolov-cv.pdf
 ---
