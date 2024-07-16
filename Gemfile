@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # jekyll
-gem "jekyll" #, "3.9.0"
+gem "jekyll", "4.3.3"
 #gem "redcarpet"
 gem "execjs"
 
@@ -13,6 +13,8 @@ gem 'less'
 gem 'octokit'
 gem 'netrc'
 
+gem 'down'
+
 # Twitter
 gem 'jekyll-twitter-plugin'
 
@@ -20,4 +22,4 @@ gem 'jekyll-twitter-plugin'
 #gem "github-pages", "~> 207", group: :jekyll_plugins
 gem 'jekyll-include-cache'
 
-gem "webrick", "~> 1.7"
+gem "webrick" #, "~> 1.7"
