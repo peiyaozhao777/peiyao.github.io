@@ -6,10 +6,12 @@ destination: docs
 markdown: kramdown
 permalink: /:categories/:title/
 future: true
+sass:
+  sass_dir: css
 
 plugins:
   - jekyll-twitter-plugin
-  - jekyll-include-cache
+ # - jekyll-include-cache
 
 redcarpet:
   extensions:

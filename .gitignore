@@ -1,6 +1,19 @@
+# Environment files
+environment*
+
 _site
-.sass-cache
+
+vendor
+# Projects
+projects/
+!projects/index.html
+
+# Jekyll build process
 .jekyll-cache
 .jekyll-metadata
-vendor
-projects/*
+.sass-cache
+
+# Other files
+.DS_Store
+.ruby-version
+.tweet-cache
