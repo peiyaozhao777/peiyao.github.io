@@ -33,7 +33,7 @@ module Projects
 		puts "Generating project data"
 		# create octokit client
 		client = Octokit::Client.new(:access_token => ENV['GITHUB_TOKEN'])		
-		# => client.login
+		# => client.login :netrc => true)#,
 
 		project_data = Array.new
 		if projects_array.length > 0
