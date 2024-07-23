@@ -1,9 +1,8 @@
 ---
 layout: dashboard
-title: "Machine Learning Foundations and Applications"
-term: Fall 2023
+title: "Global urban typology for sustainable mobility"
+term: May 2019
 ---
 
 [Link](/urban-typology-dashboard/index.html)
 
-Textbook: [Introduction to Statistical Learning with Applications in Python](https://www.statlearning.com/)
