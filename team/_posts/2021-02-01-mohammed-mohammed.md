@@ -1,6 +1,6 @@
 ---
 layout: member
-title: Mohammed Mohammed
+title: Mohammed Abdalazeem
 position: PhD Student
 handle:
 github: ma-mohammed
