@@ -3,7 +3,7 @@ layout: member
 title: Peiyao Zhao
 position: PhD Student
 handle:
-github:
+github: peiyaozhao777
 twitter:
 scholar:
 image: /images/team/peiyao-zhao.jpg
