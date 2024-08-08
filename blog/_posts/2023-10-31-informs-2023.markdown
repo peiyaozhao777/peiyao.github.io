@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "INFORMS Annual Meeting 2023"
+date:   2023-10-31 12:27:54 -0400
+categories: conference report
+---
+Tne entire lab was represented at the INFORMS Annual Meeting in Phoenix this year. 
+Jimi chaired a session (Data Mining and Machine Learning for Sustainable Transportation) and also gave a talk there on his work on road network typology analysis of MSAs.
+Mahsa presented her work on energy modeling and electrification strategy for bus transit systems.
+Mohammed gave on talk on spatiotemporal bus passenger types.
+Zhuo presented his work on energy forecasting and decision-making for urban rail transit systems.
+
+[![jimi](/images/blog/informs-2023-jimi-presenting.jpg)](/images/blog/informs-2023-jimi-presenting.jpg)*<center> Jimi presenting his talk, "Metropolitan Area Road Network Typologies and Their Implications for Sustainable Mobility" at his session.</center>*
+
+[![mahsa](/images/blog/informs-2023-mahsa-presenting.jpg)](/images/blog/informs-2023-mahsa-presenting.jpg)*<center> Mahsa giving her talk, "Optimizing Fleet Electrification Strategies for Sustainable Bus Transit."</center>*
+
+[![mohammed](/images/blog/informs-2023-mohammed-presenting.jpg)](/images/blog/informs-2023-mohammed-presenting.jpg)*<center> Mohammed presenting his talk, "Typology-Enhanced Origin-Destination-Transfer Inference from Noisy Mobile Boarding Observations."</center>*
+
+[![zhuo](/images/blog/informs-2023-zhuo-presenting.jpg)](/images/blog/informs-2023-zhuo-presenting.jpg)*<center> Zhuo presenting his talk, "Enhancing Energy Forecasts in Public Transit Using Advanced Machine Learning Techniques and High-Level Planning Metrics" at his session.</center>*
+
+[![team](/images/blog/informs-2023-team.jpg)](/images/blog/informs-2023-team.jpg)*<center>Entire team at Phoenix Convention Center. L-R: Peiyao, Zhuo, Jimi, Mohammed, Mahsa.</center>*
