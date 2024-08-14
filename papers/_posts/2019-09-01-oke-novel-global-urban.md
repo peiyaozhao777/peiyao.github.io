@@ -1,7 +1,7 @@
 ---
 layout: paper
 title: "A novel global urban typology framework for sustainable mobility futures"
-authors: Jimi B Oke, Youssef M Aboutaleb, Arun Akkinepally, Carlos Lima Azevedo, Yafei Han, P Christopher Zegras, Joseph Ferreira, Moshe E Ben-Akiva
+authors: Oke, Jimi B, Aboutaleb, Youssef M, Akkinepally, Arun, Azevedo, Carlos Lima, Han, Yafei, Zegras, P Christopher, Ferreira, Joseph, Ben-Akiva, Moshe E
 year: 2019
 ref: Oke et al. 2019. Environmental Research Letters
 journal: "Environmental Research Letters 14(9):095006."

@@ -2,7 +2,7 @@ library("rcrossref")
 library("yaml")
 library("anytime")
 library(stringr)
-setwd("../papers/_posts/")
+#setwd("papers/_posts/")
 # dois <- c(
 #           "10.1103/PhysRevLett.104.070402",
 #           "10.1093/jamia/ocaa033",
@@ -18,11 +18,16 @@ setwd("../papers/_posts/")
 #           "10.1016/j.tra.2020.06.013"
 #           )
 
-df = read.csv("../../docs/Publications.csv")
+df = read.csv("../Publications.csv")
 dois = df$DOI
 
+#for(ii in 1:4) {
 for(ii in 1:length(dois)) {
-
+  #print(dois[ii])
+  if (dois[ii] == "") {
+      print(df[ii,]$Author)
+      next
+  }
   ## get doi reference with rcrossref:
   ref_md <- cr_cn(dois = dois[ii], format = "bibtex")
   #ref_md <- as.yaml(ref_md)
@@ -33,18 +38,57 @@ for(ii in 1:length(dois)) {
   ref_layout <- "layout: paper"
   
   # title
-  title <- str_extract(grep("title =", ref_md, value = TRUE), "\\{(.*)\\}")
+  title <- str_extract(str_extract(ref_md, "title=\\{([^}]+)\\}"), "\\{([^}]+)\\}") #str_extract(grep("title=", ref_md, value = TRUE), "\\{(.*)\\}")
   title <- gsub("\\{|\\}", "", title)
   title_list <- unlist(strsplit(title, " "))
   ref_title <- paste0("title: ", "\"", title, "\"")
   
   # date
-  year <- gsub(",", "", unlist(strsplit(grep("year =", ref_md, value = TRUE), " "))[3])
+  date <- df[ii,]$Date
+  print(date)
+  date <- str_split(date,"-")[[1]]
+  year <- date[1]
+  month <- date[2]
+  day <- date[3]
+  if (is.na(month)) {
+      month = "01"
+  } 
+  if (is.na(day)) {
+      day = "01"
+  } 
+  
+  #month <- gsub("\\{|\\}", "", str_extract(str_extract(ref_md, "month=\\{([^}]+)\\}"), "\\{([^}]+)\\}"))
+  # month <- str_split(str_extract(ref_md, "month=([A-Za-z]{3})"), "=")[[1]][2] #, ",")[[1]][1]
+  # if (length(month) > 0 ) {
+  #     month <- str_which(month, fixed(month.abb, ignore_case = TRUE))
+  #     if (month < 10) {
+  #         month <- paste0("0", month)
+  #     }
+  # } else {
+  #     month = "01"
+  # }
+  # 
+  # day <- gsub("\\{|\\}", "", str_extract(str_extract(ref_md, "day=\\{([^}]+)\\}"), "\\{([^}]+)\\}"))
+  # if (is.na(day)) {
+  #     day = "01"
+  # } else {
+  #     if (length(day) > 0 ) {
+  #         if (length(day) < 10 ) {
+  #             day = paste0("0", day)
+  #         }
+  #     } else {
+  #         day = "01"
+  #     }
+  # }
+  
+  # year <- gsub(",", "", unlist(strsplit(grep("year=", ref_md, value = TRUE), " "))[3])
+  # year <- str_extract(str_extract(ref_md, "year=\\{([^}]+)\\}"), "\\{([^}]+)\\}")
+  # year <- gsub("\\{|\\}", "", year)
   ref_year <- paste0("year: ", year)
 
 
   # authors 
-  authors <- str_extract(grep("author =", ref_md, value = TRUE), "\\{(.*)\\}")
+  authors <- str_extract(str_extract(ref_md, "author=\\{([^}]+)\\}"), "\\{([^}]+)\\}")
   authors <- gsub("\\{|\\}", "", authors)
   authors <- gsub(" and", ",", authors)
   author_list <- unlist(strsplit(authors, ","))
@@ -60,7 +104,7 @@ for(ii in 1:length(dois)) {
   } else {
     cit = first_author_lastname
   }
-  journal <- str_extract(grep("journal =", ref_md, value = TRUE), "\\{(.*)\\}")
+  journal <- str_extract(str_extract(ref_md, "journal=\\{([^}]+)\\}"), "\\{([^}]+)\\}")
   journal <- gsub("\\{|\\}", "", journal)
   #journal <- gsub("\\&", "and", journal)
   journal = gsub("\\$", "", journal)
@@ -71,10 +115,10 @@ for(ii in 1:length(dois)) {
   ref_ref = paste0("ref: ", cit, " ", year, ". ", short_journal)
   
   # citation: journal/volume/number/pages
-  volume <- gsub("\\{|\\}", "", str_extract(grep("volume =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  number <- gsub("\\{|\\}", "", str_extract(grep("number =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  volume <- gsub("\\{|\\}", "", str_extract(str_extract(ref_md, "volume=\\{([^}]+)\\}"), "\\{([^}]+)\\}"))
+  number <- gsub("\\{|\\}", "", str_extract(str_extract(ref_md, "number=\\{([^}]+)\\}"), "\\{([^}]+)\\}"))
   
-  pages <- gsub("\\{|\\}", "", str_extract(grep("pages =", ref_md, value = TRUE), "\\{(.*)\\}"))
+  pages <- gsub("\\{|\\}", "", str_extract(str_extract(ref_md, "pages=\\{([^}]+)\\}"), "\\{([^}]+)\\}"))
   pages <- gsub("--", "-", pages)
   
   if (length(number) != 0) {
@@ -91,7 +135,7 @@ for(ii in 1:length(dois)) {
   ref_volume <- paste0("volume: ", volume)
   
   # doi
-  doi <- str_extract(grep("doi =", ref_md, value = TRUE), "\\{(.*)\\}")
+  doi <- str_extract(str_extract(ref_md, "DOI=\\{([^}]+)\\}"), "\\{([^}]+)\\}")
   doi <- gsub("\\{|\\}", "", doi)
   ref_doi <- paste0("doi: ", doi)
  
@@ -126,25 +170,7 @@ for(ii in 1:length(dois)) {
   }
   
   ## format filename
-  month <- gsub("\\{|\\}", "", str_extract(grep("month =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  if (length(month) > 0 ) {
-    month <- str_which(month, fixed(month.abb, ignore_case = TRUE))
-    if (month < 10) {
-      month <- paste0("0", month)
-    }
-  } else {
-    month = "01"
-  }
-  
-  day <- gsub("\\{|\\}", "", str_extract(grep("day =", ref_md, value = TRUE), "\\{(.*)\\}"))
-  if (length(day) > 0 ) {
-    if (length(day) < 10 ) {
-      day = paste0("0", day)
-    }
-  } else {
-    day = "01"
-  }
-  
+
   stopwords <- c("in", "for", "and", "a", "an", "the", "of", "on", "this", "to", "who", "whom", "whose", "why", "how", "where", "is", "my", "from")
   title_list <- tolower(title_list)
   title_list <- title_list[!title_list %in% stopwords]

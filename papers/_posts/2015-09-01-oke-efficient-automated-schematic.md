@@ -1,10 +1,10 @@
 ---
 layout: paper
 title: "Efficient automated schematic map drawing using multiobjective mixed integer programming"
-authors: Olufolajimi Oke, Sauleh Siddiqui
+authors: Oke, Olufolajimi, Siddiqui, Sauleh
 year: 2015
-ref: Oke and Siddiqui 2015. Computers and Operations Research
-journal: "Computers and Operations Research 61:1-17."
+ref: Oke et al. 2015. Computers amp; Operations Research
+journal: "Computers amp; Operations Research 61(NA):1–17."
 volume: 61
 pdf:
 doi: 10.1016/j.cor.2015.02.010
