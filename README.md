@@ -5,10 +5,10 @@
 To build the website locally, clone the repo with:
 
 ```
-git clone https://github.com/narslab/narslab.github.io.git
+git clone https://github.com/peiyaozhao777/peiyao.github.io.git
 ```
 
-Then install necessary Ruby dependencies by running `bundle install` from within the `narslab.github.io` directory.  After this, the site can be be built with:
+Then install necessary Ruby dependencies by running `bundle install` from within the `peiyao.github.io` directory.  After this, the site can be be built with:
 
 ```
 bundle exec jekyll build
